@@ -1,0 +1,2 @@
+# prognisk
+Programowanie niskopoziomowe
