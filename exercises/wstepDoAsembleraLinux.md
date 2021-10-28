@@ -9,7 +9,7 @@ Wstęp do assemblera (w Linuxie)
 
 ### Program 64 bitowy
 
-Listing 2. Asemblerowe "Hello world!" na 64 bitach
+Listing 1. Asemblerowe "Hello world!" na 64 bitach
 ```asm 
 ; wersja NASM na system 64-bitowy (x86-64)
 ; kompilacja: nasm -felf64 hello.asm -o hello.o
@@ -41,7 +41,7 @@ section .data                   ; początek sekcji danych.
 ```
 ### Program 32 bitowy
 
-Listing 1.  Asemblerowe "Hello world!"
+Listing 2.  Asemblerowe "Hello world!"
 ```asm
 ; NASM 32 bit: program zapisany w pliku hello.asm
 ; kompilacja: nasm -felf hello.asm -o hello.o
@@ -231,7 +231,16 @@ Zbuduj -> ustawienia kompilacji:
 
 ### Zadanie 1
 
-Skompiluj przykładowe przykłady, zmodyfikuj je w ten sposób aby pytały o imię, wczytywały je z klawiatury a następnie wypisywały spersonalizowane przywitanie.
+* Skompiluj przykładowy program,
+* Zmodyfikuj go w ten sposób aby:
+  * pytał o imię, 
+  * wczytywał je z klawiatury,
+  * wypisywał spersonalizowane przywitanie.
+
+```
+Jak masz na imię? Tomek
+Witaj Tomek!
+```
 
 ### Zadanie 2
 Napisz program, który wczyta dwie liczby (jedno cyfrowe) doda je do siebie i wyświetli wynik.
