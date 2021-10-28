@@ -1,7 +1,10 @@
 Wstęp do assemblera (w Linuxie)
 ===============================
 
-*[Zadania](#Zadania)
+* TOC
+{:toc}
+
+* [Zadania](#Zadania)
 
 ## Pierwsze programy
 
