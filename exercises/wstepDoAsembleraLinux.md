@@ -1,5 +1,6 @@
 Wstęp do assemblera (w Linuxie)
 ===============================
+{:.no_toc}
 
 * TOC
 {:toc}
