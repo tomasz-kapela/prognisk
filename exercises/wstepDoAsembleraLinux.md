@@ -5,8 +5,6 @@ Wstęp do assemblera (w Linuxie)
 * TOC
 {:toc}
 
-* [Zadania](#Zadania)
-
 ## Pierwsze programy
 
 ### Program 64 bitowy
