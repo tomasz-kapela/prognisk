@@ -6,15 +6,11 @@ Wstęp do assemblera (w Linuxie)
 {:toc}
 
 ## Pierwsze programy
-```c++
-void fun(){
-  return c;
-}
-```
+
 ### Program 64 bitowy
 
 Listing 1. Asemblerowe "Hello world!" na 64 bitach
-```asm
+```nasm
 ; wersja NASM na system 64-bitowy (x86-64)
 ; kompilacja: nasm -felf64 hello.asm -o hello.o
 ; linkowanie: ld hello.o -o hello
@@ -69,7 +65,7 @@ _start:            ; musi ona być widoczna na zewnątrz (global)
 
   mov eax, 1       ; numer funkcji systemowej
                    ; (1=sys_exit - wyjdź z programu)
-  int 80h          ; wywołujemy funkcję systemową
+  int 80h          ; wywołujemy funkcję szzystemową
 
 section .data      ; początek sekcji danych.
 
@@ -82,28 +78,28 @@ section .data      ; początek sekcji danych.
 
 ### `MOV` przenoszenie danych
 
-```asm 
+```nasm 
 mov eax, 3         ; zapis 3 do EAX (3 jest natychmiastowym operandem)
 mov bx, ax         ; zapis wartości z AX do BX 
 ```
 
 ### `ADD` - dodawanie liczb całkowitych
 
-```asm 
+```nasm 
 add eax, 4         ; eax = eax + 4
 add al, ah         ; al = al + ah
 ``` 
 
 ### `SUB` - odejmowanie liczb całkowitych
 
-```asm 
+```nasm 
 sub bx, 10         ; bx = bx - 10
 sub ebx, edi       ; ebx = ebx - edi
 ```
 
 ### `INC` i `DEC` - zwiększania i zmniejszanie o 1
 
-```asm 
+```nasm 
 inc ecx             ; ecx++
 dec dl              ; dl--
 ```
@@ -125,7 +121,7 @@ W tabeli zebrano akcje wykonywane dla instrukcji
 | 	 reg/mem64 | 8 |	 	 RDX:RAX = RAX*argument |
 
 
-```asm 
+```nasm 
 mul cl          ; AX = AL*CL
 mul bx          ; DX:AX = AX*BX
 mul esi         ; EDX:EAX = EAX*ESI
@@ -134,7 +130,7 @@ mul rdi         ; RDX:RAX = RAX*RDI
 
 **Tylko instrukcja `IMUL`** ma wersje dwu- lub trzyargumentowe, które operują na jawnych argumentach i ewentualne przepełnienie jest ignorowane.
 
-```asm 
+```nasm 
 imul eax, ebx         ; eax = eax * ebx
 imul bx, 5            ; bx = bx * 5
 imul [x], ebx         ; zmienna x jest przemnożona przez wartość ebx
@@ -145,7 +141,7 @@ imul rax, rbx, 2      ; rax = rbx * 2
 
 Instrukcje DIV i IDIV wykonują dzielenia na liczbach całkowitych bez znaku (DIV) i ze znakiem (IDIV), wyliczając jednocześnie resztę z dzielenia. 
 Składnia obu operacji jest identyczna:
-```asm 
+```nasm 
 div dzielnik
 idiv dzielnik
 ```
@@ -162,7 +158,7 @@ Przykładowo jeżeli dzielnik jest 32-bitowy, to dzielna jest pobierana z  EDX:E
 * dla `DIV` zerujemy rejestr ah/dx/edx/rdx np. instrukcją `xor edx, edx`
 * dla `IDIV` rozszerzamy liczbę bitem znaku używając instrukcji `CBW`/`CWD`/`CDQ`/`CQO` w zależności od rozmiaru dzielnika. Przykładowo `CDQ` wypełnia `EDX` zerami lub jedynkami w zależności czy w `EAX` jest liczba dodatnia czy ujemna.  
 
-```asm 
+```nasm 
 div cl        ; AL = (AX div CL), AH = (AX mod CL)
 div bx        ; AX = (DX:AX div BX),
               ; DX = (DX:AX mod BX)
@@ -182,7 +178,7 @@ prefix TIMES: powtarzanie instrukcji
 
 Pamięć w programie asemblerowym może być zarezerwowana na dwa sposoby. W pierwszym przypadku rezerwujemy miejsce na dane, a w drugim: rezerwujemy miejsce i inicjalizujemy dane. Pierwsza metoda wykorzystuje dyrektywę RESX, gdzie X zastępujemy literą określającą rozmiar obiektu (byte B, word W, double word D, quad word Q, ten bytes T). Druga metoda wykorzystuje dyrektywę DX, gdzie X ma to samo znaczenie, jak w przypadku RESX. Zarezerwowane miejsca w pamięci oznacza się etykietami, które pozwalają w prosty sposób uzyskać dostęp do adresu komórki pamięci jak i do danych tam wpisanych.
 
-```asm 
+```nasm 
 L1 db 0                ; byte labeled L1 with initial value 0
 L2 dw 1000             ; word labeled L2 with initial value 1000
 L3 db 110101b          ; byte initialized to binary 110101 (53 dec)
@@ -200,7 +196,7 @@ L13 resw 100                     ; reserves room for 100 words
 
 Etykiety używa się na dwa sposoby. Etykieta oznacza adres zmiennej, a więc pełni tą samą rolę co wskaźnik w C. Jeśli etykieta jest umieszczona w nawiasach kwadratowych, oznacza wartość wpisaną pod adresem skojarzonym z etykietą (wyłuskanie w C).
 
-```asm 
+```nasm 
 mov al, [L1]                     ; copy byte at L1 into AL
 mov eax, L1                      ; EAX = address of byte at L1
 mov [L1], ah                     ; copy AH into byte at L1
@@ -212,7 +208,7 @@ mov al, [L6]                     ; copy first byte of double word at L6 into AL
 
 Asembler nie sprawdza, czy etykiety są używane poprawnie, co może być źródłem wielu błędów. Przy próbie wpisywania danych do pamięci należy pamiętać o konwersji typów np.:
 
-```asm 
+```nasm 
 mov [L6], 1               ; próba zapisu 1 do L6 - niepoprawna, zwróci błąd operation size not specified
 mov dword [L6], 1         ; próba zapisu 1 do L6 - poprawna
 ```
