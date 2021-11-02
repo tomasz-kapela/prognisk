@@ -90,7 +90,7 @@ add eax, 4         ; eax = eax + 4
 add al, ah         ; al = al + ah
 ``` 
 
-### SUB - odejmowanie liczb całkowitych
+### `SUB` - odejmowanie liczb całkowitych
 
 ```asm 
 sub bx, 10         ; bx = bx - 10
@@ -137,7 +137,7 @@ imul [x], ebx         ; zmienna x jest przemnożona przez wartość ebx
 imul rax, rbx, 2      ; rax = rbx * 2
 ```
 
-### DIV i IDIV - dzielenie liczb całkowitych bez znaku (DIV) i ze znakiem (IDIV)
+### `DIV` i `IDIV` - dzielenie liczb całkowitych bez znaku (DIV) i ze znakiem (IDIV)
 
 Instrukcje DIV i IDIV wykonują dzielenia na liczbach całkowitych bez znaku (DIV) i ze znakiem (IDIV), wyliczając jednocześnie resztę z dzielenia. 
 Składnia obu operacji jest identyczna:
