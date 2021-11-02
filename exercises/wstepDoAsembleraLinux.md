@@ -212,6 +212,11 @@ Asembler nie sprawdza, czy etykiety są używane poprawnie, co może być źród
 mov [L6], 1               ; próba zapisu 1 do L6 - niepoprawna, zwróci błąd operation size not specified
 mov dword [L6], 1         ; próba zapisu 1 do L6 - poprawna
 ```
+### Wywołania systemowe
+Wywołania systemowe są podprogramami dostarczanymi przez system operacyjny. Dzięki nim mamy dostęp m.in. do klawiatury, ekranu, systemu plików, zegara systemowego. Uruchamiamy je instrukcją `syscall`.
+
+[Skrócona lista przydatnych wywołań systemowych](../talks/syscalls.md)
+
 ## Przydatne narzędzia
 
 ### Debugger
