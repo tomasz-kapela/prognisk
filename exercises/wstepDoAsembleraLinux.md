@@ -46,7 +46,7 @@ section .data                   ; początek sekcji danych.
 ### Program 32 bitowy
 
 Listing 2.  Asemblerowe "Hello world!"
-```asembler
+```asm
 ; NASM 32 bit: program zapisany w pliku hello.asm
 ; kompilacja: nasm -felf hello.asm -o hello.o
 ; linkowanie: ld hello.o -o hello
