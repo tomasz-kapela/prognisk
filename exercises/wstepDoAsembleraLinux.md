@@ -14,7 +14,7 @@ void fun(){
 ### Program 64 bitowy
 
 Listing 1. Asemblerowe "Hello world!" na 64 bitach
-```assembly
+```x86asm
 ; wersja NASM na system 64-bitowy (x86-64)
 ; kompilacja: nasm -felf64 hello.asm -o hello.o
 ; linkowanie: ld hello.o -o hello
