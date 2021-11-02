@@ -14,7 +14,7 @@ void fun(){
 ### Program 64 bitowy
 
 Listing 1. Asemblerowe "Hello world!" na 64 bitach
-```x86asm
+```asm
 ; wersja NASM na system 64-bitowy (x86-64)
 ; kompilacja: nasm -felf64 hello.asm -o hello.o
 ; linkowanie: ld hello.o -o hello
@@ -46,7 +46,7 @@ section .data                   ; początek sekcji danych.
 ### Program 32 bitowy
 
 Listing 2.  Asemblerowe "Hello world!"
-```asm
+```nasm
 ; NASM 32 bit: program zapisany w pliku hello.asm
 ; kompilacja: nasm -felf hello.asm -o hello.o
 ; linkowanie: ld hello.o -o hello
