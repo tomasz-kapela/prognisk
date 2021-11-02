@@ -6,7 +6,11 @@ Wstęp do assemblera (w Linuxie)
 {:toc}
 
 ## Pierwsze programy
-
+```c++
+void fun(){
+  return c;
+}
+```
 ### Program 64 bitowy
 
 Listing 1. Asemblerowe "Hello world!" na 64 bitach
