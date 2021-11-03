@@ -129,24 +129,39 @@ Proszę napisać w assemblerze funkcję o nagłówku
 ```c++
 extern "C" double wartosc(double a, double b, double  c, double d, double x);
 ```
-wyliczającą wartość wyrażenia y=ax^3+bx^2+cx+d. Funkcja ma pobierać dane wejściowe od procedury wołającej napisanej w C, która wyświetla wyniki obliczeń.
+wyliczającą wartość wyrażenia y=ax^3+bx^2+cx+d. 
+
+Funkcja ma pobierać dane wejściowe od procedury wołającej napisanej w C, która wyświetla wyniki obliczeń.
 
 ### Zadanie 2
 Proszę napisać funkcję asemblerową o nagłówku
+```c++
 extern "C" void prostopadloscian( float a, float b, float c, float * objetosc, float * pole);
-wyliczającą objętość i pole powierzchni prostopadłościanu a. Funkcja ma pobierać dane wejściowe od procedury wołającej napisanej w C, która wyświetla wyniki obliczeń.
+```
+wyliczającą objętość i pole powierzchni prostopadłościanu a. 
+
+Funkcja ma pobierać dane wejściowe od procedury wołającej napisanej w C, która wyświetla wyniki obliczeń.
 
 ### Zadanie 3
 Proszę napisać funkcję asemblerową o nagłówku
+```c++
 extern "C" long double iloczyn_skalarny(int n, long double * x, long double * y);
+```
 mnożącą skalarnie dwa n-wymiarowe wektory liczb rzeczywistych o współrzędnych w tablicach x i y. 
+
 Funkcja ma pobierać dane wejściowe od procedury wołającej napisanej w C, która wyświetla wyniki obliczeń.
 
 ### Zadanie 4
-Proszę napisać funkcję asemblerową tablicującą wartości funkcji:
-    y=a*(sin(P*2*pi*x))2 + b*(sin(Q*2*pi*x))2
-dla k>=2 równoodległych punktów w przedziale od xmin do xmax.(tj.  x1 = xmin ... xk = xmax )
-Funkcja ma pobierać dane wejściowe od procedury wołającej napisanej w C, która wyświetla wyniki obliczeń.
-Funkcja ma mieć nagłówek
+Proszę napisać funkcję asemblerową o nagłówku
+```c++
 extern "C" void tablicuj(double a, double b, double P, double Q, double xmin, double xmax, int k,  double * wartosci);
+```
+Funkcja ma tablicować wartości funkcji:
+```
+    y=a*(sin(P*2*pi*x))2 + b*(sin(Q*2*pi*x))2
+```
+dla k>=2 równoodległych punktów w przedziale od xmin do xmax.(tj.  x1 = xmin ... xk = xmax )
+
 Wynik ma być zapisany w tablicy wartosci (zakladamy, że jest odpowiednio duza);
+
+Funkcja ma pobierać dane wejściowe od procedury wołającej napisanej w C, która wyświetla wyniki obliczeń.
