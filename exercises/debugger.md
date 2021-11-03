@@ -1,13 +1,33 @@
-Debugger
+Debugowanie
 ===============================
 {:.no_toc}
 
 * TOC
 {:toc}
 
-## Wstęp
+## Wprowadzenie
 
-###
+### Sterowanie wykonaniem programu
+,,,
+run      - wykonuje program aż do napotkania breakpointa 
+stepi    - przejście o jedną instrukcję dalej,
+ni       - przejdź jedną instrukcję (to samo co stepi),
+si       - przejdź dokładnie jedną instrukcję,
+rni      - cofa się o jedną instrukcję (odwrotność ni),
+rsi      - cofa o dokładnie jedną instrukcję (odwrotność si),
+c        - kontynuuje debugowanie do następnego breakpointʼa lub końca/błędu wykonania,
+rc       - kontynuuje debug programu wstecz (odwraca kolejność wykonywania instrukcji programowych),
+where    - wypisuje cały proces wywoływań którym program doszedł do danego miejsca.
+,,,
+Komendy z cofaniem (reverse steps) nie zawsze działają w programach.
+
+### Breakpoints
+
+### Wyświetlanie zawartości
+
+### Zmiana wartości
+
+### Tryb TUI
 
 
 ## Zadania 
