@@ -1,18 +1,33 @@
 Tematyka ćwiczeń
 ================
 
-1. [Wstęp do assemblera](exercises/wstepDoAsembleraLinux.md)
-2. [Struktury kontrolne: skoki i pętle](https://sites.google.com/site/prognisk/struktury-kontrolne)
-3. [Podprogramy, tablice i stos](https://sites.google.com/site/prognisk/procedury-obsluga-stosu)
-4. [Interfersjowanie do C w trybie 32-bit (cdecl)](https://sites.google.com/site/prognisk/asembler-i-c)
+1. [Wstęp do assemblera](exercises/wstep_do_asemblera_linux.md)
+2. [Struktury kontrolne: skoki i pętle](exercises/struktury_kontrolne.md)
+3. [Podprogramy, tablice i stos](exercises/podprogramy.md)
+4. [CDECL - interfersjowanie do C w trybie 32-bitowym](exercises/cdecl.md)
 5. [FPU - obliczenie zmiennoprzecinkowe (32-bit)](exercises/fpu.md)
 6. [Debugger](exercises/debugger.md)
-7. 
+7. [ABI64 - interfejsowanie do C w trybie 64-bitowym](exercises/abi64.md)
+8. [Interfejsowanie do C++: przeładowanie funkcji, programowanie obiektowe](exercises/asm2cpp.md) 
+9. Operacje wektorowe: SSE
+10. Optymalizacja kodu asemblerowego
+11. Wstawki assemblerowe w C++
+12. Intrinsics w C++
+13. Polimorfizm w C++
+14. Profiler
+15. Boot-loadery i systemy operacyjne
 
 Tematy dodatkowe
 
 Pomoce
 ========
+
+* Debuger
+* Biblioteka asm64_io
+* Geany - konfiguracja
+* [Compiler explorer](https://godbolt.org/)
+* [x86 and amd64 Instruction Reference](http://felixcloutier.com/x86/)
+* [X86 Opcode and Instruction Reference](http://ref.x86asm.net/)
 
 Przydatne linki
 ===============
