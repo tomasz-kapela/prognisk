@@ -1,7 +1,7 @@
 # Operacje zmiennoprzecinkowe
  
 ## Wprowadzenie
-Koprocesor jest wyposażony w 8 rejestrów do przechowywania liczb zmiennoprzecinkowych (każdy rejestr przechowuje 80 bitów danych). Rejestry noszą nazwy ST0, ST1, ST2, . . . ST7. Rejestry są zorganizowane w postaci stosu (LIFO) z rejestrem ST0 na wierzchu stosu. Lista rozkazów koprocesora jest długa - rozkazy te operują bezpośrednio na rejestrach koprocesora. Dobre wprowadzenie do zagadnień operacji zmiennoprzecinkowych i przykłady programów asemblerowych wykorzystujących koprocesor znajdują się tutaj. Bardzo dobre rozwinięcie tematyki operacji zmiennoprzecinkowych znajduje się w rozdziale 6 książki Paula Cartera "PC Assembly Language". Na Listingu 1 przedstawiono kod C, wywołujący asemblerową procedurę liczącą pierwiastki równania kwadratowego i pokazaną na Listingu 2 (przykład zaczerpnięty z książki Cartera).
+**Koprocesor** jest wyposażony w 8 rejestrów do przechowywania liczb zmiennoprzecinkowych (każdy rejestr przechowuje 80 bitów danych). Rejestry noszą nazwy ST0, `ST1`, `ST2`, . . . ST7. Rejestry są zorganizowane w postaci stosu (LIFO) z rejestrem ST0 na wierzchu stosu. Lista rozkazów koprocesora jest długa - rozkazy te operują bezpośrednio na rejestrach koprocesora. Dobre wprowadzenie do zagadnień operacji zmiennoprzecinkowych i przykłady programów asemblerowych wykorzystujących koprocesor znajdują się tutaj. Bardzo dobre rozwinięcie tematyki operacji zmiennoprzecinkowych znajduje się w rozdziale 6 książki Paula Cartera "PC Assembly Language". Na Listingu 1 przedstawiono kod C, wywołujący asemblerową procedurę liczącą pierwiastki równania kwadratowego i pokazaną na Listingu 2 (przykład zaczerpnięty z książki Cartera).
 
 *Listing 1*
 ```c
