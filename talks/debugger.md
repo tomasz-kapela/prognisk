@@ -34,6 +34,8 @@ run lista argumentów
 Rozpocznie to wykonanie programu aż do napotkania pierwszego breakpointa i przekaże ponownie sterowanie do debuggera. 
 Mamy wtedy możliwość np. sprawdzenia zawartości rejestrów, stosu czy pamięci, prześledzenia kolejnych kroków instrukcja po instrukcji.  
 
+[GDB QUICK REFERENCE](https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
+
 ## Sterowanie wykonaniem programu
 ```gdb
 r  run       # wykonuje program aż do napotkania breakpointa 
@@ -54,8 +56,6 @@ break 10          # breakpoint na linii nr 10 w kodzie źródłowym
 break *0xFF12345  # breakpoint na adresie 0xFF12345
 tbreak etykieta   # breakpoint tymczasowy, zatrzymuje się tylko raz 
 ```
-### Breakpointy warunkowe
-```
 
 ### Zarządzanie *breakpointami*
 ```gdb
@@ -65,8 +65,34 @@ disable n         # deaktywuje breakpoint numer n
 enable n          # aktywuje breakpoint numer n
 ignore n k        # ignoruje breakpoint numer n k razy
 ```
+### Breakpointy warunkowe
+```gdb
+break etykieta if i==5  # zatrzymaj na etykiecie jeżeli zmienna i ma wartość 5 
+condition 2 i==4        # dodanie warunku do istniejącego breakpointa nr 2 
+condition 3 $eax==4     # przerwij wykonywanie jeżeli wartość w eax będzie równa 4
+```
+
 ## Wyświetlanie zawartości
+
+```
+info reg         # zawartość rejestrów całkowitoliczbowych
+info float       # zawartość rejestrów zmiennoprzecinkowych
+info all-reg     # wszystkie rejestry
+info stack       # stos wywołań funckji 
+info functions.  # lista funkcji
+info frame       # informacja o ramce stosu
+```
+
+```
+print [/f] [expr]   # wypisze wartość wyrażenia expr w podanych formacie f
+p /x $eax          # wypisz wartość w EAX szesnastkowo
+p /d $ex           # wypisz dziesiętnie ze znakiem wartość w $eax
+  
+```
 
 ## Zmiana wartości
 
 ## Tryb TUI
+
+
+
