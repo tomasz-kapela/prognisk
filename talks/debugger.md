@@ -29,26 +29,42 @@ Jeżeli chcemy rozpocząć debugowanie od początku programu to możmy ustawic 
 Gdy ustawimy już breakpointy (możemy ustawić więcej niż jeden), możemy uruchomić program poleceniem
 ```
 run
+run lista argumentów
 ```
 Rozpocznie to wykonanie programu aż do napotkania pierwszego breakpointa i przekaże ponownie sterowanie do debuggera. 
 Mamy wtedy możliwość np. sprawdzenia zawartości rejestrów, stosu czy pamięci, prześledzenia kolejnych kroków instrukcja po instrukcji.  
 
 ## Sterowanie wykonaniem programu
+```gdb
+r  run       # wykonuje program aż do napotkania breakpointa 
+si stepi     # przejście o jedną instrukcję dalej, wchodzi do wnętrza wywoływanych funkcji
+ni nexti     # przejdź jedną instrukcję, bez wchodzenia do funkcji
+s  step      # jedna linia kodu dalej (np. w C++), wchodzi do wywoływanych funkcji
+n  next      # jedna linia kodu dalej, niew wchodzi do funkcji
+c  continue  # kontynuuje debugowanie do następnego breakpointʼa lub końca/błędu wykonania
+where        # wypisuje cały proces wywoływań którym program doszedł do danego miejsca
 ```
-run      - wykonuje program aż do napotkania breakpointa 
-stepi    - przejście o jedną instrukcję dalej,
-ni       - przejdź jedną instrukcję (to samo co stepi),
-si       - przejdź dokładnie jedną instrukcję,
-rni      - cofa się o jedną instrukcję (odwrotność ni),
-rsi      - cofa o dokładnie jedną instrukcję (odwrotność si),
-c        - kontynuuje debugowanie do następnego breakpointʼa lub końca/błędu wykonania,
-rc       - kontynuuje debug programu wstecz (odwraca kolejność wykonywania instrukcji programowych),
-where    - wypisuje cały proces wywoływań którym program doszedł do danego miejsca.
-```
-Komendy z cofaniem (reverse steps) nie zawsze działają w programach.
 
 ## Breakpoints
+Do ustawiania breakpointów służy `break` (można używać skrótu `b`)
 
+```gdb
+break fun         # breakpoint na etykiecie/funkcji fun  
+break 10          # breakpoint na linii nr 10 w kodzie źródłowym   
+break *0xFF12345  # breakpoint na adresie 0xFF12345
+tbreak etykieta   # breakpoint tymczasowy, zatrzymuje się tylko raz 
+```
+### Breakpointy warunkowe
+```
+
+### Zarządzanie *breakpointami*
+```gdb
+info break        # wyświetla wszystkie breakpointy
+delete n          # usuwa breakpoint numer n
+disable n         # deaktywuje breakpoint numer n
+enable n          # aktywuje breakpoint numer n
+ignore n k        # ignoruje breakpoint numer n k razy
+```
 ## Wyświetlanie zawartości
 
 ## Zmiana wartości
