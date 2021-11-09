@@ -7,28 +7,10 @@ Debugowanie
 
 ## Wprowadzenie
 
-### Sterowanie wykonaniem programu
-```
-run      - wykonuje program aż do napotkania breakpointa 
-stepi    - przejście o jedną instrukcję dalej,
-ni       - przejdź jedną instrukcję (to samo co stepi),
-si       - przejdź dokładnie jedną instrukcję,
-rni      - cofa się o jedną instrukcję (odwrotność ni),
-rsi      - cofa o dokładnie jedną instrukcję (odwrotność si),
-c        - kontynuuje debugowanie do następnego breakpointʼa lub końca/błędu wykonania,
-rc       - kontynuuje debug programu wstecz (odwraca kolejność wykonywania instrukcji programowych),
-where    - wypisuje cały proces wywoływań którym program doszedł do danego miejsca.
-```
-Komendy z cofaniem (reverse steps) nie zawsze działają w programach.
+Debuger GDB umożliwie wykonanie programu instukcja po instrukcji i śledzenie wartości rejestrów i zmiennych. 
+Pozwala to często zauważyć błędy w programie.
 
-### Breakpoints
-
-### Wyświetlanie zawartości
-
-### Zmiana wartości
-
-### Tryb TUI
-
+[Skrócony opis możliwości GDB](../talks/debugger.md)
 
 ## Zadania 
 
