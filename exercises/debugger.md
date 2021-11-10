@@ -23,12 +23,12 @@ Naprawić błąd bezpośrednio w gdb tak aby program wykonał się poprawnie
 Napisać skrypt dla gdb, który automatycznie naprawia ten błąd. 
 
 ### Zadanie 2
-Dostępny jest plik *main.c* z funkcją **main**, zawierający przykłady użycia i plik binarny **funkcja32**  programu w wersji 32-bit (fukcja32_O2 - wersja skompilowana z optymalizacją O2). 
+Dostępny jest plik **[funkcja.c](bin/funkcja.c)** z funkcją `main`, zawierający przykłady użycia i plik binarny **[oblicz32](bin/oblicz32)**  programu w wersji 32-bit. 
 Chciano przekompilować ten program do wersji 64-bitowej. Niestety zaginął plik C  z definicją funkcji  
 ```c
 long oblicz(short, int, long);
 ```
-Odtwórz plik *oblicz.c* (z implementacją funkcji f) używając gdb i analizując wersję binarną funkcji oblicz. 
+Odtwórz plik *oblicz.c* (z implementacją funkcji oblicz) używając gdb i analizując wersję binarną funkcji oblicz. 
 
 Jako rozwiązanie prześlij tylko plik oblicz.c.
 
