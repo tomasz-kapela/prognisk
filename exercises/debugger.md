@@ -26,11 +26,11 @@ Napisać skrypt dla gdb, który automatycznie naprawia ten błąd.
 Dostępny jest plik *main.c* z funkcją **main**, zawierający przykłady użycia i plik binarny **funkcja32**  programu w wersji 32-bit (fukcja32_O2 - wersja skompilowana z optymalizacją O2). 
 Chciano przekompilować ten program do wersji 64-bitowej. Niestety zaginął plik C  z definicją funkcji  
 ```c
-char f(char, char, char);
+long oblicz(short, int, long);
 ```
-Odtwórz plik *funkcja.c* (z implementacją funkcji f) używając gdb i analizując wersję binarną funkcji f. 
+Odtwórz plik *oblicz.c* (z implementacją funkcji f) używając gdb i analizując wersję binarną funkcji oblicz. 
 
-Jako rozwiązanie prześlij tylko plik funkcja.c.
+Jako rozwiązanie prześlij tylko plik oblicz.c.
 
 ### Zadanie 3
 Używając debugera do obejścia zabezpieczeń odczytaj sekretna informację.
