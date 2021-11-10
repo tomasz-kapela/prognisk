@@ -16,11 +16,17 @@ Pozwala to często zauważyć błędy w programie.
 
 ### Zadanie 1
 
-Uruchomić gdb na przykładowym programie debug lub debug64 ustawić break na etykietę stop i wypisać zawartość rejestrów oraz listę funkcji, a następnie zdeasemblować wszystkie funkcje programu i znaleźć błąd odpowiedzialny za niewyświetlanie napisu “Hello World!”
+Program [hello64](bin/hello64) powinien wyświetlać napis “Hello World!”. Niestety nie wyświetla.
 
-Naprawić błąd bezpośrednio w gdb tak aby program wykonał się poprawnie wyświetlając napis. 
+* Zdebugować program używając gdb i znaleźć przyczynę.  
+* Naprawić błąd bezpośrednio w gdb tak aby program wykonał się poprawnie wyświetlając napis. 
+* Napisać skrypt dla gdb, który automatyzuje ten proces.
+ 
+Wskazówki: 
+ * Breakpointa można ustawić na etykietę `stop` (lub `_start`).
+ * zdeasemblować funkcję `_start`
+ * Wykonać program krok po kroku obserwując zawartość rejestrów. 
 
-Napisać skrypt dla gdb, który automatycznie naprawia ten błąd. 
 
 ### Zadanie 2
 Dostępny jest plik **[funkcja.c](bin/funkcja.c)** z funkcją `main`, zawierający przykłady użycia i plik binarny **[oblicz32](bin/oblicz32)**  programu w wersji 32-bit. 
