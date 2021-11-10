@@ -84,15 +84,79 @@ info frame       # informacja o ramce stosu
 ```
 
 ```
-print [/f] [expr]   # wypisze wartość wyrażenia expr w podanych formacie f
+print [/f] [expr]  # wypisze wartość wyrażenia expr w podanych formacie f
 p /x $eax          # wypisz wartość w EAX szesnastkowo
 p /d $ex           # wypisz dziesiętnie ze znakiem wartość w $eax
-  
+  x hexadecimal
+  d signed decimal
+  u unsigned decimal
+  o octal
+  t binary
+  a address, absolute and relative
+  c character
+  f floating point
+```
+
+```
+x [/Nuf] adres.   # wypisze zawartość pamięci pod danym adresem
+   N   ile elementów wypisać
+   u   rozmiar jednego elementu: b=1, h=2, w=4, g=8
+   f   format jak w print + dodatkowo:
+       s  łańcuch tekstowy zakończony 0
+       i  instrukcja asemblerowa           
+```
+
+## Deasemblowanie funkcji
+Ponadto możemy wyświetlić listę zdefiniowanych funkcji wpisując:
+
+```
+info functions
+```
+i zdeasemblować wybraną funkcję poleceniem:
+```
+disassemble nazwa_funkcji
+```
+Aby zdefiniować jaką składnię chcemy uzyskać przy deasembacji, piszemy:
+```
+set disassembly-flavor xxx    ;gdzie w miejsce xxx wstawiamy intel lub att
 ```
 
 ## Zmiana wartości
+```
+set $reg=???                    - ustawia wartość rejestru reg na wartość ???,
+
+set variable zmienna=???        - ustawia wartość zmiennej na ???,
+
+set variable *0x########=???    - ustawia wartość ??? w pamięci pod adresem 0x########.
+```
 
 ## Tryb TUI
 
+Ciekawą opcją jest przejście w tryb TUI. Włączamy go kombinacją klawiszy CTRL+x, a lub poleceniem gdb --tui.
 
+Terminal zostaje podzielony na kilka okienek tekstowych na których możemy jednocześnie obserwować kod programu, rejestry itd.
 
+Kolejne widoki przełączamy kombinacją klawiszy CTRL+x,2
+
+Szczegóły można znaleźć np. na tej [stronie](http://www.cs.fsu.edu/~baker/ada/gnat/html/gdb_23.html). 
+
+## Skrypty GDB
+
+Przykładowy skrypt skrypt.gdb
+
+```
+set verbose off
+
+break _start
+commands 1
+  info r
+  continue
+end
+run
+quit
+```
+
+Uruchamiamy gdb poleceniem
+```
+gdb ./program -x skrypt.gdb -q
+```
