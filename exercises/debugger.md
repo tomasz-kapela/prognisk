@@ -31,8 +31,9 @@ Program [hello64](https://ww2.ii.uj.edu.pl/~kapela/pn/bin/hello64) powinien wyś
 
 Wskazówki: 
  * Breakpointa można ustawić na etykietę `stop` (lub `_start`).
- * zdeasemblować funkcję `_start`
+ * Zdeasemblować funkcję `_start`.
  * Wykonać program krok po kroku obserwując zawartość rejestrów. 
+ * W razie problemów można skompilować program hello64 z pierwszych zajęć i porównać kod w GDB.
 
 
 ### Zadanie 2
