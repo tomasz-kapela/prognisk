@@ -52,5 +52,5 @@ Jako rozwiązanie prześlij hasło dostępu lub skrypt GDB obchodzący zabezpiec
 
 Programy binarne do wyboru:  
 * [pass32.exe](https://ww2.ii.uj.edu.pl/~kapela/pn/bin/pass32.exe) - 32-bit, no-pie
-* [pass64.exe](https://ww2.ii.uj.edu.pl/~kapela/pn/bin/pass64.exe) - 32-bit, no-pie
-* [pass64_pie.exe](https://ww2.ii.uj.edu.pl/~kapela/pn/bin/pass64_pie.exe) - 32-bit, pie
+* [pass64.exe](https://ww2.ii.uj.edu.pl/~kapela/pn/bin/pass64.exe) - 64-bit, no-pie
+* [pass64_pie.exe](https://ww2.ii.uj.edu.pl/~kapela/pn/bin/pass64_pie.exe) - 64-bit, pie
