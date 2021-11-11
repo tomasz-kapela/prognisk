@@ -14,7 +14,7 @@ Pozwala to często zauważyć błędy w programie.
 
 ## Zadania 
 
-*Wskazówka:* W poniższych zadaniach do pobrania są pliki binarne. Aby zacząć je debugować należy najpierw nadać im atrybut wykonywalnośći np. poleceniem
+W poniższych zadaniach do pobrania są pliki binarne. Aby zacząć je debugować należy najpierw nadać im atrybut wykonywalnośći np. poleceniem
 ```bash
 chmod u+x nazwa_programu
 ```
