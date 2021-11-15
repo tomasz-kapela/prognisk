@@ -99,7 +99,7 @@ int main(){
 Dla powyższego kodu w C++ napisz moduł assemblerowy implementujący funkcje:
 *  `float podatek(Faktura f)` - zwracającą należny podatek według wzoru:  
     podatek= (obrót - podatekNaliczony) * stawkaPodatku
-*  `void wypisz(const Faktura & f)` - wypisującą na ekran napis przy pomocy standardowej funkcji `printf`   
+*  `void wypisz(const Faktura & f)` - wypisującą przy pomocy standardowej funkcji `printf` na ekran następujący napis    
    ```cpp 
     printf("Faktura %d : obrot %f podatek %f\n", f.id, f.obrot, podatek(f));
    ```
