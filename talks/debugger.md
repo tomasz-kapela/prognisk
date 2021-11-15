@@ -140,11 +140,23 @@ Kolejne widoki przełączamy kombinacją klawiszy CTRL+x,2
 
 Szczegóły można znaleźć np. na tej [stronie](http://www.cs.fsu.edu/~baker/ada/gnat/html/gdb_23.html). 
 
+## Domyślne ustawienia GDB
+
+Aby dostosować GDB bez konieczności wpisywania za każdym razem tych samych poleceń można umieścić je w pliku `.gdbinit` w katalogu domowym. 
+
+Poniższy przykładowy plik `.gdbinit` ustawia domyślnie składnię intela i włącza gdb w trybie TUI z wyświetlonymi rejestrami.
+```
+set disassembly-flavor intel
+set print pretty on
+layout reg
+```
+
+
 ## Skrypty GDB
 
 Przykładowy skrypt skrypt.gdb
 
-```
+```gdb
 set verbose off
 
 break _start
@@ -157,6 +169,6 @@ quit
 ```
 
 Uruchamiamy gdb poleceniem
-```
+```bash
 gdb ./program -x skrypt.gdb -q
 ```
