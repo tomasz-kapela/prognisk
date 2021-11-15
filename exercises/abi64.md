@@ -29,10 +29,9 @@ W dużym skrócie:
 
 Więcej informacji i przykłady można znaleźć w [notatkach z wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/tableOfContent.php?lectureNumber=7).
 
-## Zadania
 Poniższe zadania powinny być rozwiązane w trybie 64 bitowym.
 
-### Zadanie 1
+## Zadanie 1
 Napisz w assemblerze funkcję 
 ```cpp
 extern "C" int suma (int n, int * tab);
@@ -44,7 +43,7 @@ suma(4, tab);
 ```
 powinno zwrócić 10.   
 
-### Zadanie 2
+## Zadanie 2
 Napisz w assemblerze funkcję 
 ```cpp
 extern "C" double wartosc (double a, double b, double x, int n);
@@ -55,7 +54,7 @@ Wywołanie `wartosc(4.0, 3.0, 2.0, 2);` powinno zwrócić 121.
 
 Obliczenia zmiennoprzecinkowe należy wykonać na jednostce "SSE". 
 
-### Zadanie 3
+## Zadanie 3
 Zaimplementuj w assemblerze funkcję 
 ```cpp
 extern "C" int iloczyn (int n, ...);
@@ -69,7 +68,7 @@ powinno zwrócić 24 oraz 240.
 
 *Wskazówka*: Po zdjęciu adresu powrotu można na stosie odłożyć w kolejności R9, R8, RCX, RDX, RSI i wtedy otrzymamy tablicę wszystkich argumentów (elementy znajdują się co 8 bajtów!).
 
-### Zadanie 4
+## Zadanie 4
 
 ```cpp
 #include <cstdio>
@@ -100,10 +99,11 @@ int main(){
 Dla powyższego kodu w C++ napisz moduł assemblerowy implementujący funkcje:
 *  `float podatek(Faktura f)` - zwracającą należny podatek według wzoru:  
     podatek= (obrót - podatekNaliczony) * stawkaPodatku
-*  `void wypisz(const Faktura & f)` - wypisującą na ekran napis przy pomocy standardowej funkcji `printf` 
- 
+*  `void wypisz(const Faktura & f)` - wypisującą na ekran napis przy pomocy standardowej funkcji `printf`   
+   ```cpp 
     printf("Faktura %d : obrot %f podatek %f\n", f.id, f.obrot, podatek(f));
-
+   ```
+   
 *Wskazówki*:
 * Obiekt klasy Faktura przekazywany do funkcji podatek przez wartość zostanie pocięty na kawałki 8 bajtowe: pierwszy trafi do RDI, drugi do XMM0. 
 * Funkcja printf wymaga aby  
