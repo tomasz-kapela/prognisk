@@ -15,6 +15,7 @@ W dużym skrócie:
 * Argumenty są przekazywane w pierwszej kolejności przez odpowiednie rejestry w zależności od ich typu:
    * całkowitoliczbowe i wskaźniki : `RDI, RSI, RDX, RCX, R8, R9`
    * zmiennoprzecinkowe (poza long double) : `XMM0, XMM1, ..., XMM7`
+  
   Dopiero gdy braknie miejsca w odpowiednich rejestrach argumenty są odkładane na stosie od prawej do lewej. 
   Rejestr `RAX` powinien zawierać liczbę argumentów przekazywanych przez rejestry zmiennoprzecinkowe.
 * Przed wywołaniem funkcji stos powinien być wyrównany do granicy 16 bajtowej.
