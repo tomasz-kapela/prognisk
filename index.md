@@ -1,5 +1,8 @@
+Programowanie niskopoziomowe
+============================
+
 Tematyka ćwiczeń
-================
+----------------
 
 1. [Wstęp do assemblera](exercises/wstep_do_asemblera_linux.md)
 2. [Struktury kontrolne: skoki i pętle](exercises/struktury_kontrolne.md)
@@ -17,11 +20,11 @@ Tematyka ćwiczeń
 14. Profiler
 15. Boot-loadery i systemy operacyjne
 
-Tematy dodatkowe
 
-Pomoce
-========
+Materiały
+---------
 
+* [Strona wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/)
 * Debuger
 * Biblioteka asm64_io
 * Geany - konfiguracja
