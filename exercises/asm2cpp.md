@@ -5,6 +5,8 @@ Interfejsowanie do C++
 * TOC
 {:toc}
 
+## Wstęp 
+
 Do rozwiązania zadań przydatna jest znajomość wykładów
 * [Struktury i C++](https://ww2.ii.uj.edu.pl/~kapela/pn/tableOfContent.php?lectureNumber=8)
 * [Operacje łańcuchowe](https://ww2.ii.uj.edu.pl/~kapela/pn/tableOfContent.php?lectureNumber=11)
@@ -66,7 +68,7 @@ int main(){
    
 ## Zadanie 2
 
-Wykorzystując operacje łańcuchowe i  przedrostek `REP` zaimplementuj w asemblerze funkcje
+Wykorzystując [operacje łańcuchowe](https://ww2.ii.uj.edu.pl/~kapela/pn/tableOfContent.php?lectureNumber=11) i  przedrostek `REP` zaimplementuj w asemblerze funkcje
 ```cpp
 // kopiuje n liczb typu int z zrodla do celu 
 void kopiuj(unsigned int * cel, unsigned int * zrodlo, unsigned int n);
