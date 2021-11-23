@@ -146,6 +146,10 @@ zaimplementuj w asemblerze metody
 
 * Z ich pomocą (można już w języku C++) zdefiniuj operatory:
   * wypisania liczby BigInt do strumienia 
+    ```cpp
+    BigInt a(1234);
+    cout << a << endl;
+    ```
   * przypisania łańcucha tekstowego, zawierającego liczbę np.   
     ```cpp
     a="1234214243543543543243543534";
