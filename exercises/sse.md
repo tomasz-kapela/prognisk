@@ -115,9 +115,9 @@ int main(void)
 Korzystając z instrukcji SSE proszę napisać procedurę wyliczającą amplitudę gradientu obrazu - 8-bitowej bitmapy.
 Na Listingu 4 przedstawiono również prototyp funkcji liczącej gradient. 
 Gradient GRAD(i,j) w pikselu (i,j) liczony jest według wzoru:
-
+```
 GRAD(i,j)= scale * sqrt((DATA(i+1,j)-DATA(i-1,j))2+(DATA(i,j+1)-DATA(i,j-1))2)
-
+```
 Na Listingu przedstawiony jest kod z instrukcjami pozwalającymi czytać i pisać do bitmapy 256-kolorowej. 
 Dla polepszenia dokładności obliczeń gradientu, zarówno dane wejściowe jak i wyjściowe są typu float. 
 
