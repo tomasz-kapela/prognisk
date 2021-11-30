@@ -161,7 +161,10 @@ Progam działa tylko dla obrazków 400x400 w skali szarości. Przykładowe obraz
 
 | Obraz wejściowy  | Obraz wyjściowy |
 | ---------------- | --------------- |
-|  ![wejście]()    | ![wyjście]().   |
+|  ![wejście](circle3.bmp)    | ![wyjście](dum.bmp)   |
+|  [Pobierz](circle3.bmp)    | [Pobierz](dum.bmp)   |
+
+
 
 Uwaga: Obrazek należy otworzyć w nowym oknie a następnie zapisać! Bezpośrednie zapisanie może powodować błędny format pliku.
 
@@ -169,82 +172,60 @@ UWAGA: Zaproponowana w zadaniu procedura liczenia gradientu z obrazu nie ma szcz
 Filtry gradientowe można jednak zaimplementować, korzystając z analogicznych metod, jak rozważane w zadaniu.
 
 ## Zadanie 3
-Korzystając z instrukcji SSE proszę napisać procedurę zmniejszającą dwukrotnie rozmiar bitmapy przedstawionej na Rys. 1. Każdy stopień szarości piksela OUT(i,j) wynikowej bitmapy ma być średnią z czterech odpowiednich stopni szarości pikseli bitmapy wejściowej IN według wzoru: 
+Korzystając z instrukcji SSE proszę napisać procedurę zmniejszającą dwukrotnie rozmiar bitmapy z poprzedniego zadania. 
 
+Każdy stopień szarości piksela OUT(i,j) wynikowej bitmapy ma być średnią z czterech odpowiednich stopni szarości pikseli bitmapy wejściowej IN według wzoru: 
+
+```
 OUT(i,j) = (IN(2*i,2*j) + IN(2*i +1,2*j) + IN(2*i,2*j + 1) + IN(2*i + 1,2*j + 1))/4
+```
 
-Na Listingu 5 przedstawiony jest kod opakowania dla procedury skalującej bitmapę wraz z prototypem i sposobem użycia tej funkcji.
+Na Listingu przedstawiony jest kod opakowania dla procedury skalującej bitmapę wraz z prototypem i sposobem użycia tej funkcji.
 
+```cpp
 #include <stdio.h>
 
-void scaleSSE(float *,float *,int);
+extern "C" void scaleSSE(float *,float *,int);
 
 int main(void)
-
 {
-
     float data[400][400],dum[200][200];
-
     unsigned char header[1078];
-
     unsigned char ch;
-
     int N=400,HL=1078;
-
     int i,j;
 
     FILE *strm;
-
     strm=fopen("circle.bmp","rb");
-
-        for(i=0;i<HL;i++) header[i]=fgetc(strm);
-
-        for(i=0;i<N;i++)
-
+    for(i=0;i<HL;i++) header[i]=fgetc(strm);
+    for(i=0;i<N;i++)
         for(j=0;j<N;j++)
-
             data[i][j]=(float)fgetc(strm);
-
     fclose(strm);
-
-    
 
     for(i=0;i<N/2;i++) scaleSSE(dum[i],data[2*i],N);
-
     
-
+// Modyfikujemy rozmiar bitmapy w nagłówku
     header[4]=0;
-
     header[3]=160;
-
     header[2]=118;
 
-    
-
     header[18]=200;
-
     header[19]=0;
-
     header[22]=200;
-
     header[23]=0;
 
-    
-
     strm=fopen("dum.bmp","wb");
-
-        for(i=0;i<HL;i++) fputc(header[i],strm);
-
-        for(i=0;i<N/2;i++)
-
+    for(i=0;i<HL;i++) fputc(header[i],strm);      
+    for(i=0;i<N/2;i++)
         for(j=0;j<N/2;j++)
-
             fputc((unsigned char)dum[i][j],strm);
-
     fclose(strm);
-
-           
-
 }
+```
 
-Informacje o wielkości bitmapy są zapisane w modyfikowanych bajtach nagłówka. W bajtach od 2 poczynając zakodowany jest rozmiar bitmapy w bajtach (równy wysokość*szerokość zaokrąglona do najbliższej liczby podzielnej przez 4 + ilość bajtów nagłówka). W bajtach od 18 poczynając zakodowane są wysokość i szerokość bitmapy.
+*Uwaga:*
+Informacje o wielkości bitmapy są zapisane w modyfikowanych bajtach nagłówka. 
+W bajtach od 2 poczynając zakodowany jest rozmiar bitmapy w bajtach 
+(równy wysokość * szerokość zaokrąglona do najbliższej liczby podzielnej przez 4 + ilość bajtów nagłówka). 
+W bajtach od 18 poczynając zakodowane są wysokość i szerokość bitmapy.
