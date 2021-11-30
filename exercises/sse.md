@@ -123,7 +123,7 @@ Dla polepszenia dokładności obliczeń gradientu, zarówno dane wejściowe jak 
 
 
 Listing 4 Opakowanie asemblerowej funkcji liczącej gradient obrazu
-```
+```cpp
 #include <stdio.h>
 
 //Na wyjściu: grad[i] = scale * sqrt( (data[i+1] - data[i-1])^2 + (data[i+N] - data[i-N])^2)
