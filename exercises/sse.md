@@ -123,39 +123,7 @@ Dla polepszenia dokładności obliczeń gradientu, zarówno dane wejściowe jak 
 
 
 Listing 4 Opakowanie asemblerowej funkcji liczącej gradient obrazu
-```cpp
-#include <stdio.h>
-
-//Na wyjściu: grad[i] = scale * sqrt( (data[i+1] - data[i-1])^2 + (data[i+N] - data[i-N])^2)
-// dla i=0,1,...,N-2
-extern "C" void gradientSSE(float *grad, float * data, int N, float scale);
-int main(void) {
-  const int N=400, HL=1078;
-  char header[HL];
-  float data[N][N];
-  float grad[N][N];
-  int i,j;
-  FILE *strm = fopen("circle3.bmp","rb");
-  fread(header, 1, HL, strm); // wczytuje header
-  for(i=0; i<N; i++)
-    for(j=0; j<N; j++)
-      data[i][j]=(float)fgetc(strm);  // czyta piksele i konwertuje na float
-  fclose(strm);
-
-  for(i=1; i<N-1; i++) // Dla wszystkich pikseli "wewnętrznych"
-    gradientSSE(grad[i]+1, data[i]+1, N, 7);    // wyznaczamy gradient
-
-  for(i=0; i<N; i++){ // Tworzymy białą ramkę obrazka
-     grad[0][i]=255; grad[N-1][i]=255; grad[i][0]=255; grad[i][N-1]=255;
-  }
-
-  strm=fopen("wynik.bmp","wb");
-  fwrite(header, 1, HL, strm);
-  for(i=0; i<N; i++)
-    for(j=0; j<N; j++)
-      fputc((unsigned char)grad[i][j],strm);
-  fclose(strm);
-}
+```c++:./sse/zadanie2.cpp
 ```
 Progam działa tylko dla obrazków 400x400 w skali szarości. Przykładowe obrazy wejściowy i wyjściowy przedstawiono poniżej.
 
@@ -165,60 +133,66 @@ Progam działa tylko dla obrazków 400x400 w skali szarości. Przykładowe obraz
 |  [Pobierz](circle3.bmp)    | [Pobierz](dum.bmp)   |
 
 
+```c++:exercises/sse/zadanie2.cpp
+```
 Uwaga: Obrazek należy otworzyć w nowym oknie a następnie zapisać! Bezpośrednie zapisanie może powodować błędny format pliku.
 
 UWAGA: Zaproponowana w zadaniu procedura liczenia gradientu z obrazu nie ma szczególnie dobrych własności i raczej nie jest wykorzystywana w praktyce. 
 Filtry gradientowe można jednak zaimplementować, korzystając z analogicznych metod, jak rozważane w zadaniu.
 
 ## Zadanie 3
-Korzystając z instrukcji SSE proszę napisać procedurę zmniejszającą dwukrotnie rozmiar bitmapy z poprzedniego zadania. 
+Korzystając z instrukcji SSE zaimplementować w asemblerze funkcję `scaleSSE` zmniejszającą dwukrotnie rozmiar bitmapy z poprzedniego zadania. 
 
 Każdy stopień szarości piksela OUT(i,j) wynikowej bitmapy ma być średnią z czterech odpowiednich stopni szarości pikseli bitmapy wejściowej IN według wzoru: 
 
 ```
 OUT(i,j) = (IN(2*i,2*j) + IN(2*i +1,2*j) + IN(2*i,2*j + 1) + IN(2*i + 1,2*j + 1))/4
 ```
+Funkcja o nagłówku
+```cpp
+void scaleSSE(float * out, float * in, int n);
+```
+ma przetwarzać dwa wiersze o rozmiarze n (podzielne przez 4) znajdujące się jeden za drugim pod adresem `in`  w jeden wiersz wynikowy  `out` o rozmiarze n/2.
 
-Na Listingu przedstawiony jest kod opakowania dla procedury skalującej bitmapę wraz z prototypem i sposobem użycia tej funkcji.
-
+Na Listingu przedstawiony przykład użycia tej funkcji scaleSSE.
 ```cpp
 #include <stdio.h>
 
-extern "C" void scaleSSE(float *,float *,int);
+extern "C" void scaleSSE(float * out, float * in, int n);
 
 int main(void)
 {
-    float data[400][400],dum[200][200];
-    unsigned char header[1078];
+    const int N=400,HL=1078;
+    float data[N][N],
+          wynik[N][N];
+    unsigned char header[HL];
     unsigned char ch;
-    int N=400,HL=1078;
-    int i,j;
+        int i,j;
 
     FILE *strm;
-    strm=fopen("circle.bmp","rb");
-    for(i=0;i<HL;i++) header[i]=fgetc(strm);
-    for(i=0;i<N;i++)
-        for(j=0;j<N;j++)
+    strm=fopen("circle3.bmp","rb");
+    fread(header, 1, HL, strm);  // wczytuje header
+    for(i=0;i<N;i++)             // wczytuje dane bitmapy
+        for(j=0;j<N;j++)         // konwertując piksele na float
             data[i][j]=(float)fgetc(strm);
     fclose(strm);
 
-    for(i=0;i<N/2;i++) scaleSSE(dum[i],data[2*i],N);
-    
-// Modyfikujemy rozmiar bitmapy w nagłówku
-    header[4]=0;
-    header[3]=160;
-    header[2]=118;
-
-    header[18]=200;
-    header[19]=0;
-    header[22]=200;
-    header[23]=0;
-
-    strm=fopen("dum.bmp","wb");
-    for(i=0;i<HL;i++) fputc(header[i],strm);      
+    // właściwe skalowanie bitmapy wiersz po wierszu
     for(i=0;i<N/2;i++)
-        for(j=0;j<N/2;j++)
-            fputc((unsigned char)dum[i][j],strm);
+        scaleSSE(wynik[i],data[2*i],N);
+
+    // Modyfikujemy rozmiar bitmapy w nagłówku
+    header[4]=0; header[3]=160; header[2]=118; // rozmiar pliku
+
+    header[18]=200;   header[19]=0;  // szerokość bitmapy
+    header[22]=200;   header[23]=0;  // wysokość bitmapy
+
+    // Zapisuje wynik do pliku
+    strm=fopen("wynik3.bmp","wb");
+    fwrite(header, 1, HL, strm);
+    for(i=0;i<N/2;i++)
+        for(j=0;j<N/2;j++)    // konwertuje wyniki na skalę szarości
+            fputc((unsigned char)wynik[i][j],strm);
     fclose(strm);
 }
 ```
