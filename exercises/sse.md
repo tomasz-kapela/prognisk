@@ -165,8 +165,6 @@ Progam działa tylko dla obrazków 400x400 w skali szarości. Przykładowe obraz
 |  [Pobierz](circle3.bmp)    | [Pobierz](dum.bmp)   |
 
 
-Uwaga: Obrazek należy otworzyć w nowym oknie a następnie zapisać! Bezpośrednie zapisanie może powodować błędny format pliku.
-
 UWAGA: Zaproponowana w zadaniu procedura liczenia gradientu z obrazu nie ma szczególnie dobrych własności i raczej nie jest wykorzystywana w praktyce. 
 Filtry gradientowe można jednak zaimplementować, korzystając z analogicznych metod, jak rozważane w zadaniu.
 
