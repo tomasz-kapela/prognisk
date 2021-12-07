@@ -33,6 +33,7 @@ Funkcje intrinsics zastępują stosowane wcześniej wstawki asemblerowe, zapewni
 Zmienne tych typów mogą zostać umieszczone w jednym z rejestrów xmm0-xmm15 lub znajdować się w pamięci.
 
 === Przykład
+
 ```cpp
 #include <x86intrin.h>
 #include <cstdio>
