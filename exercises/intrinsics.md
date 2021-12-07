@@ -219,3 +219,5 @@ int main(void)
     fclose(file);
 }
 ```
+
+Obrazek wejściowy [pigeon.bmp](pigeon.bmp)
