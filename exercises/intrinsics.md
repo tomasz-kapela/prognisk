@@ -190,7 +190,7 @@ int main(void)
     float data[3][height][width];    // tablica dla każdej składowej koloru
     float result[3][height][width];
 
-    float weight[3][3]= {{0, -2, 0} ,{ -2, 11, -2}, {0, -2, 0}};
+    float weight[3][3]= { {0, -2, 0}, { -2, 11, -2}, {0, -2, 0} };
     
     int i,j,k;
     FILE *file;
