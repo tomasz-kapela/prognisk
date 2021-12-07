@@ -223,3 +223,5 @@ int main(void)
 ```
 
 Obrazek wejściowy [pigeon.bmp](pigeon.bmp)
+
+![pigeon.bmp](pigeon.bmp)
