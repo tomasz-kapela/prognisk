@@ -157,16 +157,20 @@ int main(void){
     fclose(strm);
 }
 ```
+*Wskazówka*:
+* Przy kompilacji należy dodać opcje definiującą odpowiednią architekturę docelową procesora w zależności od użytych funkcji.
+
 Zadanie 3. 
 ----------
-Zaimplementować filtry uwzględniające otoczenie tak jak opisano tutaj.
 
-W skrócie: dla każdego piksela liczymy średnią ważoną w jego otoczeniu 3x3 tzn.
-liczymy sumę pikseli z otoczenia przemnożonych przez odpowiednią wagę z macierzy
-weight, a następnie dzielimy przez sumę wag. 
+Zaimplementować filtry uwzględniające otoczenie tak jak opisano [tutaj](http://informatyka.wroc.pl/node/443?page=0,2).
 
-Należy użyć funkcji wektorowych operujących na floatach.
-
+*Wskazówki*: 
+*  Dla każdego piksela liczymy średnią ważoną w jego otoczeniu 3x3 tzn.
+   liczymy sumę pikseli z otoczenia przemnożonych przez odpowiednią wagę z macierzy
+   weight, a następnie dzielimy przez sumę wag (chyba że suma wag jest zerem, to wtedy nie dzielimy).  
+*  Wynik tych obliczeń może być poza zakresem [0,255], dlatego trzeba go odpowiednio "przyciąć".
+*  Należy użyć funkcji wektorowych operujących na floatach.
 
 Przykład użycia 
 ```cpp
