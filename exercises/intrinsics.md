@@ -214,4 +214,4 @@ int main(void)
           fputc((unsigned char)result[k][i][j],file);
     fclose(file);
 }
-,,,
+```
