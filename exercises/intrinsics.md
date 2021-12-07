@@ -23,7 +23,7 @@ Funkcje intrinsics zastępują stosowane wcześniej wstawki asemblerowe, zapewni
 
 [Wygodny spis funkcji intrinsics stronie Intela](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html).
 
-=== Typy danych 
+### Typy danych 
 
 * `__m64`  dana 64 bitowa
 * `__m128` wektor 4 liczb typu float
@@ -32,7 +32,7 @@ Funkcje intrinsics zastępują stosowane wcześniej wstawki asemblerowe, zapewni
 
 Zmienne tych typów mogą zostać umieszczone w jednym z rejestrów xmm0-xmm15 lub znajdować się w pamięci.
 
-=== Przykład
+### Przykład
 
 ```cpp
 #include <x86intrin.h>
@@ -171,6 +171,7 @@ Zaimplementować filtry uwzględniające otoczenie tak jak opisano [tutaj](http:
    liczymy sumę pikseli z otoczenia przemnożonych przez odpowiednią wagę z macierzy
    weight, a następnie dzielimy przez sumę wag (chyba że suma wag jest zerem, to wtedy nie dzielimy).  
 *  Wynik tych obliczeń może być poza zakresem [0,255], dlatego trzeba go odpowiednio "przyciąć".
+*  Obliczenia ją osobno przeprowadzane dla każdej składowej koloru.
 *  Należy użyć funkcji wektorowych operujących na floatach.
 
 Przykład użycia 
