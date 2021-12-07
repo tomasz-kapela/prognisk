@@ -13,9 +13,10 @@ Tematyka ćwiczeń
 7. [ABI64 - interfejsowanie do C w trybie 64-bitowym](exercises/abi64.md)
 8. [Interfejsowanie do C++: przeładowanie funkcji, programowanie obiektowe](exercises/asm2cpp.md) 
 9. [Operacje wektorowe: SSE](exercises/sse.md)
-10. Optymalizacja kodu asemblerowego
+9. [Intrinsics w C++](exercises/intrinsics.md) 
+10. [Optymalizacja kodu asemblerowego](exercises/optymalizacja.md)
 11. Wstawki assemblerowe w C++
-12. Intrinsics w C++
+12. 
 13. Polimorfizm w C++
 14. Profiler
 15. Boot-loadery i systemy operacyjne
