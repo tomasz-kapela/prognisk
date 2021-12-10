@@ -14,7 +14,7 @@ Na [stronie wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/listLectureSlides.php)
 
 Aby otrzymać punkty za zadanie należy użyć technik, które są opisane w treści zadania i dodatkowo osiągnąć czasy wymagane w testach na BaCy.
 
-=== BONUS:
+### BONUS:
 
 Dla każdego zadania osoba z najszybszym rozwiązaniem dostaje dodatkowe 3p, druga w kolejności 2p, trzecia 1p.
 
@@ -76,9 +76,11 @@ int main(){
 
 Zadanie 2. 
 ----------
-Zaimplementuj w asemblerze funkcję 
+Zaimplementuj w asemblerze odpowiednik funkcji C++ 
 ```cpp
-void solve(int n, float * A, float * B, float * X);
+void solve(int n, float * A, float * B, float * X){
+
+}
 ```
 Funkcja rozwiązuje n równań liniowych postaci
 ```
@@ -151,3 +153,30 @@ int main(int argc, char **argv){
 576045 573750 571455 569160 566865 128520 -576045 
 */
 ```
+
+Zadania dodatkowe
+-----------------
+
+### Zadanie D1 
+
+Zaimplementuj w asemblerze funkcję 
+```cpp
+void solve(int n, float * A, float * B, float * X);
+```
+Funkcja rozwiązuje n równań liniowych postaci
+```
+   a*x=b
+```
+gdzie a=A[i], b=B[i], x=X[i].
+
+Jeżeli a==0 i b==0 to istnieje nieskończenie wiele rozwiązań, wynikiem powinno być x = +Inf 
+
+Jeżeli a==0 i b!=0 to nie ma rozwiązań, wynikiem jest x = NaN.
+
+Użyj instrukcji SSE do maskowania wyników tak aby poza instrukcją pętli nie było innych skoków warunkowych.
+
+Dla uproszczenia zakładamy, że n jest podzielne przez 4.
+
+Wskaźniki A, b, x  wskazują na tablice liczb typu float o rozmiarze n.
+
+Na BaCy wszystkie wersje są dopuszczone (nie muszą korzystać z SSE), liczy się prędkość.
