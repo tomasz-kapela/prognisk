@@ -14,7 +14,7 @@ Na [stronie wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/listLectureSlides.php)
 
 Aby otrzymać punkty za zadanie należy użyć technik, które są opisane w treści zadania i dodatkowo osiągnąć czasy wymagane w testach na BaCy.
 
-### BONUS:
+## BONUS:
 
 Dla każdego zadania osoba z najszybszym rozwiązaniem dostaje dodatkowe 3p, druga w kolejności 2p, trzecia 1p.
 
