@@ -78,28 +78,59 @@ Zadanie 2.
 ----------
 Zaimplementuj w asemblerze odpowiednik funkcji C++ 
 ```cpp
-void solve(int n, float * A, float * B, float * X){
-
+void obliczSSE(float * wynik, float *a, float *b, float x, int n){
+  for(int i=0; i<n; i++){
+	   if(a[i] == b[i] ){
+		    wynik[i] = x + b[i]*x*x;
+	   } else if(a[i] > b[i]){
+		    wynik[i] = b[i]/(a[i]-b[i])*x + b[i]*x*x;
+	   } else {
+		    wynik[i] = a[i]/(b[i]-a[i])*x + b[i]*x*x;
+	   }
+  }
 }
 ```
-Funkcja rozwiązuje n równań liniowych postaci
+* Obliczenia powinny być przeprowadzone wektorowo. 
+* Użyj instrukcji SSE i masek aby poza instrukcją pętli nie było innych skoków warunkowych.
+* Zakładamy, że n jest podzielne przez 4, a wskaźniki a, b, wynik  wskazują na tablice liczb typu float o rozmiarze co najmniej n.
+
+Na BaCy w konkursie na prędkość dopuszczone są wszystkie wersje (nie muszą korzystać z SSE), liczy się prędkość.
+
+```cpp
+#include <stdio.h> 
+#include <cstdlib>
+using namespace std;
+
+extern "C" void obliczSSE(float * wynik, float *a, float *b, float x, int n);
+
+int main(void) { 
+  const int liczbaPowtorzen = 1000;    
+  const int N=20;
+  float a[N] = {0, 1, 3, 3, -2, -2, -3, -4, 100000, 1};
+  float b[N] = {0, 1, 2, 2, -1, -1, -3, -4, 100000, 1};
+  srand(2021);
+  for(int i=10; i<N; i++){
+	   a[i] = rand() % 2000 - 1000;
+	   b[i] = rand() % 4000 - 1000;
+  }
+  float wynik[N];
+  float x = 4;
+  
+	 for(int i=0; i<liczbaPowtorzen; ++i){
+		  obliczSSE(wynik, a, b, x, N);
+	 }
+  
+  for(int i=0; i<N; i+=4)         
+     printf("%15.5f %15.5f %15.5f %15.5f \n", wynik[i], wynik[i+1], wynik[i+2], wynik[i+3]);
+}
+/* Output:
+        4.00000        20.00000        40.00000        40.00000 
+      -24.00000       -24.00000       -44.00000       -60.00000 
+  1600004.00000        20.00000     34655.30078      7246.57617 
+    -5735.45068     -2712.30566     -4383.20020     -6770.80127 
+   -13106.12988     -3977.03564     25110.60156      6893.25586 
+*/
 ```
-   a*x=b
-```
-gdzie a=A[i], b=B[i], x=X[i].
-
-Jeżeli a==0 i b==0 to istnieje nieskończenie wiele rozwiązań, wynikiem powinno być x = +Inf 
-
-Jeżeli a==0 i b!=0 to nie ma rozwiązań, wynikiem jest x = NaN.
-
-Użyj instrukcji SSE do maskowania wyników tak aby poza instrukcją pętli nie było innych skoków warunkowych.
-
-Dla uproszczenia zakładamy, że n jest podzielne przez 4.
-
-Wskaźniki A, b, x  wskazują na tablice liczb typu float o rozmiarze n.
-
-Na BaCy wszystkie wersje są dopuszczone (nie muszą korzystać z SSE), liczy się prędkość.
-
 Zadanie 3.
 ----------
 Zaimplementuj w asemblerze funkcję 
