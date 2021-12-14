@@ -80,13 +80,13 @@ Zaimplementuj w asemblerze odpowiednik funkcji C++
 ```cpp
 void obliczSSE(float * wynik, float *a, float *b, float x, int n){
   for(int i=0; i<n; i++){
-	   if(a[i] == b[i] ){
-		    wynik[i] = x + b[i]*x*x;
-	   } else if(a[i] > b[i]){
-		    wynik[i] = b[i]/(a[i]-b[i])*x + b[i]*x*x;
-	   } else {
-		    wynik[i] = a[i]/(b[i]-a[i])*x + b[i]*x*x;
-	   }
+     if(a[i] == b[i] ){
+         wynik[i] = x + b[i]*x*x;
+     } else if(a[i] > b[i]){
+         wynik[i] = b[i]/(a[i]-b[i])*x + b[i]*x*x;
+     } else {
+         wynik[i] = a[i]/(b[i]-a[i])*x + b[i]*x*x;
+     }
   }
 }
 ```
@@ -110,15 +110,15 @@ int main(void) {
   float b[N] = {0, 1, 2, 2, -1, -1, -3, -4, 100000, 1};
   srand(2021);
   for(int i=10; i<N; i++){
-	   a[i] = rand() % 2000 - 1000;
-	   b[i] = rand() % 4000 - 1000;
+     a[i] = rand() % 2000 - 1000;
+     b[i] = rand() % 4000 - 1000;
   }
   float wynik[N];
   float x = 4;
   
-	 for(int i=0; i<liczbaPowtorzen; ++i){
-		  obliczSSE(wynik, a, b, x, N);
-	 }
+  for(int i=0; i<liczbaPowtorzen; ++i){
+     obliczSSE(wynik, a, b, x, N);
+  }
   
   for(int i=0; i<N; i+=4)         
      printf("%15.5f %15.5f %15.5f %15.5f \n", wynik[i], wynik[i+1], wynik[i+2], wynik[i+3]);
@@ -131,6 +131,7 @@ int main(void) {
    -13106.12988     -3977.03564     25110.60156      6893.25586 
 */
 ```
+
 Zadanie 3.
 ----------
 Zaimplementuj w asemblerze funkcję 
@@ -158,7 +159,6 @@ int main(int argc, char **argv){
          B[i][j] = (i-j)%19;
       }
    }
-
 
   multiply(A, B, C);
 
