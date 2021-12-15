@@ -14,9 +14,16 @@ Na [stronie wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/listLectureSlides.php)
 
 Aby otrzymać punkty za zadanie należy użyć technik, które są opisane w treści zadania i dodatkowo osiągnąć czasy wymagane w testach na BaCy.
 
-## BONUS: Konkurs na najszybszy kod
+### BONUS: Konkurs na najszybszy kod
 
 Dla każdego zadania osoba z najszybszym rozwiązaniem dostaje dodatkowe 3p, druga w kolejności 2p, trzecia 1p.
+
+### Testy dla zadań 
+
+W archiwum znajdują się poniższe programy z pustymi plikami asm do uzupełnienia oraz z plikiem Makefile kompilującym zestaw.
+
+[Programy do zadań z makefile](optymalizacja/zadania.zip)
+
 
 
 Zadanie 1.
