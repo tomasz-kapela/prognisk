@@ -1,8 +1,8 @@
-global oblicz
+global obliczSSE
 
 section .text
 
-oblicz:
+obliczSSE:
 
    mov eax, 1
    ret
