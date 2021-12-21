@@ -1,6 +1,6 @@
 # Porównywanie liczb w SSE
 
-## Porównywanie skalarne ustawiające flagi procesora
+## Porównania skalarne ustawiające flagi procesora
 
 Poniższe instrukcje porównują skalarnie ostatnie elementy rejestrów i ustawiają odpowiednie flagi procesora `ZF`, `PF`, `CF`  (resztę zerują),
 w ten sposób, że możemy następnie wykonywać odpwiednie skoki warunkowe jak dla liczb całkowitych bez znaku (`JE`, `JA`, `JB`, `JAE`,...)
@@ -15,10 +15,11 @@ comiss xmm0, xmm1    ; porównuje dwa floaty
 jb etykieta          ; robi skok jeżeli xmm0[0] < xmm1[0]
 ```
 
-## Porównywanie ustawiające maskę 
+## Porównania ustawiające maskę bitową
+Gdy porównujemy odpowiadające elementy dwóch wektorów to wyniki porównania mogą się różnić dla poszczególnych par elementów.
+Zamiast pojedynczego wyniku otrzymujemy na danej pozycji maskę bitową `111...11` gd porównanie zwróci prawdę lub `00...00` w przeciwnym wypadku.
 
 ### Liczby zmiennoprzecinkowe
-
 ```nasm
 cmpps/cmppd a, b, XX    ; porównuje elementy wektorów a i b predykatem XX, maskę zapisuje w a
 cmpss/cmpsd a, b, XX    ; porównuje skalarnie elementy a[0] i b[0] predykatem XX
