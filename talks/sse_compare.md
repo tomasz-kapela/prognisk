@@ -58,7 +58,7 @@ xmm0 : |111..1111|000..0000|000..0000|111..1111| ; (maska)
 
 Dla predykatu **XX (EQ, GT lub LT)** i tablicy liczb całkowitych ze znakiem o rozmiarze * **(B=1, W=2, D=4, Q=8)** 
 wynikiem jest maska zawierająca jedynki dla tych elementów dla których predykat zwraca prawdę. 
-```
+```nasm
 pcmpXX* a, b      ;  a[i] = (a[i] XX b[i])? 11...11 : 00...00     
 vpcmpXX* w, a, b  ;  w[i] = (a[i] XX b[i])? 11...11 : 00...00
 ``` 
