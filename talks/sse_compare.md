@@ -45,7 +45,7 @@ Najczęściej wykorzystywane predykaty i odpowiadające im pseoudoinstrukcje (s�
 *Przykład*. Testujemy, używając predykatu `<`, czy odpowiednie elementy wektora `xmm0`, traktowane jako liczby float, 
 są mniejsze od odpowiednich elementów wektora `xmm1`. 
 Przykładowo dla poniższych danych otrzymamy maskę
-```
+```nasm
 cmpltps xmm0, xmm1    ;   równoznaczne cmpps xmm0, xmm1, 1
 
 xmm0 : |   2.0   |  -4.3   |   36.4  |   12.1  |
