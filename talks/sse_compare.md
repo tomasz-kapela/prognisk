@@ -21,7 +21,7 @@ Przykład
 cmpps / cmppd a, b, XX    ; porównuje elementy wektorów a i b predykatem XX
 cmpss / cmpsd a, b, XX    ; porównuje skalarnie elementy a[0] i b[0] predykatem XX
 ```
-Odpowiadające elementy dwóch wektorów są porównywane i jeżeli zachodzi relacja  `a[i] XX b[i]` to wynikiem na danej pozycji jest maska `111...11` w przeciwnym wypadku `00...00`.  W przypadku instrukcji skalarnych porównywane są elementy z indeksem 0. 
+Odpowiadające elementy dwóch wektorów (traktowane jako liczby float lub double) są porównywane i jeżeli zachodzi relacja  `a[i] XX b[i]` to wynikiem na danej pozycji jest maska `111...11` w przeciwnym wypadku `00...00`.  W przypadku instrukcji skalarnych porównywane są elementy z indeksem 0. 
 ```
 a[i] = (a[i] XX b[i]) ? 0xFF..FF :  0x00..00;
 ```
@@ -38,20 +38,35 @@ Najczęściej wykorzystywane predykaty i odpowiadające im pseoudoinstrukcje (s�
 |  6 |  >=      | CMPNLE**        |    
 |  7 |  !isnan  | CMPORD**        |    
 
-Przykład testowania, czy liczby są różne (rozkaz CMPNEQPS xmm0, xmm1):
+Przykład.
+```
+CMPLTPS xmm0, xmm1
+```
+Testujemy używając predykatu < czy odpowiednie elementy wektora `xmm0` traktowane jako liczby float są mniejsze od odpowiednich elementów wektora `xmm1`. 
+Przykładowo dla poniższych danych otrzymamy maskę
 ```
  +---------+---------+---------+---------+
- |   1.0   |  -5.3   |   16.5  |   17.2  | xmm0
+ |   2.0   |  -4.3   |   36.4  |   12.1  | xmm0
  +---------+---------+---------+---------+
-      ≠         ≠         ≠         ≠
+      <         <         <         <
  +---------+---------+---------+---------+
- |   7.0   |  -5.3   |   16.5  |   17.3  | xmm1
+ |   7.0   |  -4.3   |    1.5  |   12.2  | xmm1
  +---------+---------+---------+---------+
       =         =         =         =
  +---------+---------+---------+---------+
- |111..1111|000..0000|000..0000|111..1111| xmm0
+ |111..1111|000..0000|000..0000|111..1111| xmm0 (maska)
  +---------+---------+---------+---------+
 ```
 
+Dla predykatu XX (EQ, GT lub LT) i tablicy liczb całkowitych o rozmiarze * (B=1, W=2, D=4, Q=8) 
+```
+pcmpXX* a, b      ;  `a[i] = a[i] XX b[i]`     
+vpcmpXX* w, a, b  ; ustawia w `w[i]` maskę w zależności od tego czy `a[i] XX b[i]`
+``` 
 
+| rozkaz | predykat | rezultat |
+| ----   | -------  | -------- |
+pcmpgt* xmm1, xmm2/m128
+vpcmpgt* xmm0, xmm1, xmm2/m128
 
+``
