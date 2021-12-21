@@ -41,25 +41,16 @@ Najczęściej wykorzystywane predykaty i odpowiadające im pseoudoinstrukcje (s�
 |  6 |  >=      | CMPNLE**        |    
 |  7 |  !isnan  | CMPORD**        |    
 
-Przykład
-```
-CMPLTPS xmm0, xmm1
-```
-Testujemy, używając predykatu `<`, czy odpowiednie elementy wektora `xmm0`, traktowane jako liczby float, 
+*Przykład*. Testujemy, używając predykatu `<`, czy odpowiednie elementy wektora `xmm0`, traktowane jako liczby float, 
 są mniejsze od odpowiednich elementów wektora `xmm1`. 
 Przykładowo dla poniższych danych otrzymamy maskę
 ```
- +---------+---------+---------+---------+
- |   2.0   |  -4.3   |   36.4  |   12.1  | xmm0
- +---------+---------+---------+---------+
-      <         <         <         <
- +---------+---------+---------+---------+
- |   7.0   |  -4.3   |    1.5  |   12.2  | xmm1
- +---------+---------+---------+---------+
-      =         =         =         =
- +---------+---------+---------+---------+
- |111..1111|000..0000|000..0000|111..1111| xmm0 (maska)
- +---------+---------+---------+---------+
+cmpltps xmm0, xmm1    ;   równoznaczne cmpps xmm0, xmm1, 1
+
+xmm0 : |   2.0   |  -4.3   |   36.4  |   12.1  |
+xmm1 : |   7.0   |  -4.3   |    1.5  |   12.2  | 
+            =         =         =         =
+xmm0 : |111..1111|000..0000|000..0000|111..1111| ; (maska)
 ```
 
 ### Liczby całkowite 
@@ -77,5 +68,6 @@ pcmpltb xmm1, xmm2
 
 xmm1 : A B C D E F G H I J K L M N O P
 xmm2 : A A A F F F O O O O O O O O O O
+ =     = = = = = = = = = = = = = = = =
 xmm1 : 000000FFFF00FFFFFFFFFFFFFFFF0000 ; (maska)
 ```
