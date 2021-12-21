@@ -5,21 +5,24 @@
 Poniższe instrukcje porównują skalarnie ostatnie elementy rejestrów i ustawiają odpowiednie flagi procesora `ZF`, `PF`, `CF`  (resztę zerują),
 w ten sposób, że możemy następnie wykonywać odpwiednie skoki warunkowe jak dla liczb całkowitych bez znaku (`JE`, `JA`, `JB`, `JAE`,...)
 ```nasm
-comiss, comisd      ; sygnalizuje błąd gdy argumentem jest QNaN lub SNaN
-ucomiss, ucomisd    ; sygnalizuje błąd tylko dla SNaN
+comiss/comisd   xmm1, xmm2     ; sygnalizuje błąd gdy argumentem jest QNaN lub SNaN
+ucomiss/ucomisd xmm1, xmm2     ; sygnalizuje błąd tylko dla SNaN
 ```
 
 Przykład
 ```nasm
-   comiss xmm0, xmm1    ; porównuje dwa floaty
-   jb etykieta          ; robi skok jeżeli xmm0[0] < xmm1[0]
+comiss xmm0, xmm1    ; porównuje dwa floaty
+jb etykieta          ; robi skok jeżeli xmm0[0] < xmm1[0]
 ```
 
 ## Porównywanie ustawiające maskę 
 
-```
-cmpps / cmppd a, b, XX    ; porównuje elementy wektorów a i b predykatem XX
-cmpss / cmpsd a, b, XX    ; porównuje skalarnie elementy a[0] i b[0] predykatem XX
+### Liczby zmiennoprzecinkowe
+
+```nasm
+cmpps/cmppd a, b, XX    ; porównuje elementy wektorów a i b predykatem XX, maskę zapisuje w a
+cmpss/cmpsd a, b, XX    ; porównuje skalarnie elementy a[0] i b[0] predykatem XX
+vcmp** r, a, b, XX      ; porównuje wektory a i b podobnie jak cmp** ale maskę zapisuje w r  
 ```
 Odpowiadające elementy dwóch wektorów (traktowane jako liczby float lub double) są porównywane i jeżeli zachodzi relacja  `a[i] XX b[i]` to wynikiem na danej pozycji jest maska `111...11` w przeciwnym wypadku `00...00`.  W przypadku instrukcji skalarnych porównywane są elementy z indeksem 0. 
 ```
@@ -38,11 +41,12 @@ Najczęściej wykorzystywane predykaty i odpowiadające im pseoudoinstrukcje (s�
 |  6 |  >=      | CMPNLE**        |    
 |  7 |  !isnan  | CMPORD**        |    
 
-Przykład.
+Przykład
 ```
 CMPLTPS xmm0, xmm1
 ```
-Testujemy używając predykatu < czy odpowiednie elementy wektora `xmm0` traktowane jako liczby float są mniejsze od odpowiednich elementów wektora `xmm1`. 
+Testujemy, używając predykatu `<`, czy odpowiednie elementy wektora `xmm0`, traktowane jako liczby float, 
+są mniejsze od odpowiednich elementów wektora `xmm1`. 
 Przykładowo dla poniższych danych otrzymamy maskę
 ```
  +---------+---------+---------+---------+
@@ -58,15 +62,20 @@ Przykładowo dla poniższych danych otrzymamy maskę
  +---------+---------+---------+---------+
 ```
 
-Dla predykatu XX (EQ, GT lub LT) i tablicy liczb całkowitych o rozmiarze * (B=1, W=2, D=4, Q=8) 
+### Liczby całkowite 
+
+Dla predykatu **XX (EQ, GT lub LT)** i tablicy liczb całkowitych ze znakiem o rozmiarze * **(B=1, W=2, D=4, Q=8)** 
+wynikiem jest maska zawierająca jedynki dla tych elementów dla których predykat zwraca prawdę. 
 ```
-pcmpXX* a, b      ;  `a[i] = a[i] XX b[i]`     
-vpcmpXX* w, a, b  ; ustawia w `w[i]` maskę w zależności od tego czy `a[i] XX b[i]`
+pcmpXX* a, b      ;  a[i] = (a[i] XX b[i])? 11...11 : 00...00     
+vpcmpXX* w, a, b  ;  w[i] = (a[i] XX b[i])? 11...11 : 00...00
 ``` 
 
-| rozkaz | predykat | rezultat |
-| ----   | -------  | -------- |
-pcmpgt* xmm1, xmm2/m128
-vpcmpgt* xmm0, xmm1, xmm2/m128
+Przykład: w xmm1, xmm2 mamy ciągi 16 znaków (jednobajtowe = rozmiar B), chemy porównać je predykatem < (LT) wiec stosujemy instrukcję `PCMPLTB xmm1, xmm2`.
+```nasm
+pcmpltb xmm1, xmm2
 
-``
+xmm1 : A B C D E F G H I J K L M N O P
+xmm2 : A A A F F F O O O O O O O O O O
+xmm1 : 000000FFFF00FFFFFFFFFFFFFFFF0000 ; (maska)
+```
