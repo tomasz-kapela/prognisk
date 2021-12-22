@@ -72,3 +72,56 @@ xmm2 : A A A F F F O O O O O O O O O O
  =     = = = = = = = = = = = = = = = =
 xmm1 : 000000FFFF00FFFFFFFFFFFFFFFF0000 ; (maska)
 ```
+## Eliminowanie skoków z wykorzystaniem masek
+
+* Jeżeli dla elementów wektora v w zależności od spełnienia przez element predykatu `Pred` chcemy przeprowadzić różne obliczenia, których wyniki to odpowiednio Vt lub Vf. To nie pasuje do modelu SIMD.
+* Chcemy uniknąć instrukcji warunkowej, bo ona wymusza wykonanie skalarne.
+
+Rozwiązanie:
+* Tworzymy maskę bitową `M` dla predykatu `Pred` i wektora `v` (ma jednyki na tych pozycjach gdzie spełniony jest predykat).
+* Przeprowadzamy oba obliczenia dla całych wektorów otrzymująć wektory wyników `Vt` i `Vf`.
+* Łączymy te wyniki wykorzystując maskę M i operacje bitowy
+  ```
+  ( Vt and M ) or ( Vf and !M )
+  ``` 
+  
+Przykład
+```nasm 
+;  void change(const char * x){
+;  for(int i=0; i<16; ++i)
+;    if(x[i] <= 'M') x[i] = '*';
+;  }
+section .text 
+change:
+    movdqu  xmm0, [rdi]      ; ładujemy przekazany łańcuch tekstowy
+    movdqu  xmm1, [const40]  ; wektor stałych 40
+    movdqa  xmm2, xmm0       ; 
+ 
+    pcmpgtb xmm2, xmm1       ; xmm2  zawiera maske
+ 
+    movdqa  xmm1, [star]
+ 
+    pand    xmm0, xmm2       ; zerujemy znaki mniejsze niż M      
+    pandn   xmm2, xmm1       ; ustawiamy tam gwiazdki
+    por     xmm0, xmm2       ; sumujemy 
+ 
+    movdqu  [rdi], xmm0
+ 
+    ret
+
+section .data 
+const40  'MMMMMMMMMMMMMMMM' 
+star     '****************' 
+```
+
+### Maskowane przesyłanie danych
+
+Aby wyeliminować skoki możemy też wykorzystać maskowane przesyłanie danych
+```nasm
+; Odczyt
+vmaskmovps/pd xmm0, xmm1, [mem] ; wczytuje spod adresu `mem` te elementy wektora `xmm0` dla których w masce `xmm1`
+                                ; ustawione są jedynki, pozostałe elementy zeruje.
+; Zapis
+vmaskmovps/pd [mem], xmm1, xmm0 ; zapisuje pod adres `mem` te elementy wektora `xmm0` dla których w masce `xmm1`
+                                ; ustawione są jedynki, pozostałe elementy pozostają niezmienione.
+```
