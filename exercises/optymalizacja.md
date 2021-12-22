@@ -5,10 +5,11 @@ Optymalizacja
 * TOC
 {:toc}
 
-Pomoce
-------
+## Pomoce
 
-Na [stronie wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/listLectureSlides.php) można znaleźć listę optymalizacji, które można wypróbować.
+* Lista optymalizacji na [stronie wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/listLectureSlides.php), które można wypróbować.
+* Porównywanie wektorów liczb w SSE
+
 
 **Rozwiązania zadań w wersji 32 bitowej należy przesłać na BaCę.**
 
@@ -26,8 +27,7 @@ W archiwum znajdują się poniższe programy z pustymi plikami asm do uzupełnie
 
 
 
-Zadanie 1.
-----------
+## Zadanie 1.
 
 Napisz w asemblerze funkcje 
 ```cpp
@@ -81,8 +81,8 @@ int main(){
 */
 ```
 
-Zadanie 2. 
-----------
+## Zadanie 2. 
+
 Zaimplementuj w asemblerze odpowiednik funkcji C++ 
 ```cpp
 void obliczSSE(float * wynik, float *a, float *b, float x, int n){
@@ -139,8 +139,8 @@ int main(void) {
 */
 ```
 
-Zadanie 3.
-----------
+## Zadanie 3.
+
 Zaimplementuj w asemblerze funkcję 
 ```cpp
 extern "C" void multiply(float A[256][256], float B[256][256], 
