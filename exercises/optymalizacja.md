@@ -8,7 +8,7 @@ Optymalizacja
 ## Pomoce
 
 * Lista optymalizacji na [stronie wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/listLectureSlides.php), które można wypróbować.
-* Porównywanie wektorów liczb w SSE
+* [Porównywanie wektorów liczb w SSE](../talks/sse_compare.md)
 
 
 **Rozwiązania zadań w wersji 32 bitowej należy przesłać na BaCę.**
