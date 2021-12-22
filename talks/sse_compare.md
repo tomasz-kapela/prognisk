@@ -114,14 +114,16 @@ const40  'MMMMMMMMMMMMMMMM'
 star     '****************' 
 ```
 
-### Maskowane przesyłanie danych
+## Maskowane przesyłanie danych
 
 Aby wyeliminować skoki możemy też wykorzystać maskowane przesyłanie danych
 ```nasm
 ; Odczyt
-vmaskmovps/pd xmm0, xmm1, [mem] ; wczytuje spod adresu `mem` te elementy wektora `xmm0` dla których w masce `xmm1`
-                                ; ustawione są jedynki, pozostałe elementy zeruje.
+vmaskmovps/pd xmm0, xmm1, [mem] ; wczytuje spod adresu `mem` te elementy wektora `xmm0` 
+                                ; dla których w masce `xmm1` ustawione są jedynki, 
+                                ; pozostałe elementy zeruje.
 ; Zapis
-vmaskmovps/pd [mem], xmm1, xmm0 ; zapisuje pod adres `mem` te elementy wektora `xmm0` dla których w masce `xmm1`
-                                ; ustawione są jedynki, pozostałe elementy pozostają niezmienione.
+vmaskmovps/pd [mem], xmm1, xmm0 ; zapisuje pod adres `mem` te elementy wektora `xmm0` 
+                                ; dla których w masce `xmm1` ustawione są jedynki, 
+                                ; pozostałe elementy pozostają niezmienione.
 ```
