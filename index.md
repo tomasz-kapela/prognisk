@@ -35,6 +35,7 @@ Materiały
 Przydatne linki
 ===============
 
+* Bogdan Drozdowski [Jezyk asembler dla kazdego](http://bogdro.evai.pl/linux/index.php)
 
 Literatura
 ==========
