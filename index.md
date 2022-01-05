@@ -15,10 +15,9 @@ Tematyka ćwiczeń
 9. [Operacje wektorowe: SSE](exercises/sse.md)
 9. [Intrinsics w C++](exercises/intrinsics.md) 
 10. [Optymalizacja kodu asemblerowego](exercises/optymalizacja.md)
-11. Wstawki assemblerowe w C++
-12. 
-13. Polimorfizm w C++
-14. Profiler
+11. [Polimorfizm w C++](https://sites.google.com/site/prognisk/tematyka-%C4%87wicze%C5%84/polimorfizm-w-c)
+12. Profiler
+13. Wstawki assemblerowe w C++
 15. Boot-loadery i systemy operacyjne
 
 
