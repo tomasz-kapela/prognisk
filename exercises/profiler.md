@@ -4,11 +4,11 @@ Profiler
 
 ## Profiler `gprof`
 
-* [Notatki z wykładu: profiler gprof]()
+* [Notatki z wykładu: profiler gprof](https://ww2.ii.uj.edu.pl/~kapela/pn/splitLecture.php?lectureNumber=20&slideNumber=5)
 
 ## Perf
 
-* [Tutorial dla perf]()
+* [Tutorial dla perf](https://www.brendangregg.com/perf.html)
 
 Poniższe komendy pozwalają dla danego polecenia (command) zebrać i wyświetlić statystyki liczników procesora tj. źle przewidziane skoki, nietrafienia w bufor. 
 Narzędzie perf wymaga uprawnień roota. 
