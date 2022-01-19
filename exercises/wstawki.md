@@ -81,33 +81,33 @@ asm( "movl %1, %%eax;"
 ```
 Więcej informacji można znaleźć na stronie: [http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html](http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)
 
-Zadanie 1
+## Zadanie 1
+
 Wykorzystując operacje łańcuchowe i  przedrostek REP zaimplementuj w C++ wykorzystując wstawkę asemblerową funkcję 
-
+```cpp
 // kopiuje n liczb typu int z zrodla do celu 
-
 void kopiuj(int * cel, int * zrodlo, unsigned int n);
+```
 
-Zadanie 2
+## Zadanie 2
+ 
 Napisz w C++ funkcję 
-
+```cpp
 char * dodaj(char * tab1, char * tab2, int n)
-
+```
 dodającą do siebie odpowiednie elementy dwóch tablic o rozmiarze n i zwracającą wynik w nowej tablicy utworzonej na stercie.
 
-Dodawanie powinno być z wysyceniem i powinno wykorzystywać instrukcje SSE:  PADDSB (Packed add with saturation bytes). 
+Dodawanie powinno być z wysyceniem i powinno wykorzystywać instrukcje SSE:  `PADDSB` (Packed add with saturation bytes). 
 
 W tym celu użyj odpowiednią wstawkę asemblerową.
 
-Zadanie 3
+## Zadanie 3
+
 Napisz klasę Przedział o końcach typu double.
 
 Posługując się wstawkami asemblerowymi zaimplementuj operatory + i - : dodający i odejmujący poprawnie dwa przedziały. 
 
-W ścisłych obliczeniach arytmetycznych zamiast liczb zmiennoprzecinkowych wykorzystuje się przedziały,
-
-określając dla nich zwykłe operacje arytmetyczne w ten sposób, że wynikiem działania jest możliwie najmniejszy przedział, 
-
+W ścisłych obliczeniach arytmetycznych zamiast liczb zmiennoprzecinkowych wykorzystuje się przedziały, określając dla nich zwykłe operacje arytmetyczne w ten sposób, że wynikiem działania jest możliwie najmniejszy przedział, 
 który zawiera wszystkie możliwe wyniki pomiędzy elementami pierwszego i drugiego przedziału.
 
 Np. dla dodawania [a,b] + [c,d] = [a+c, b+d].
@@ -117,18 +117,40 @@ Niestety liczby a+c i b+d mogą nie być reprezentowalne na komputerze, dlatego 
 Niestety z poziomu C++ nie mamy dostępu do tych flag i musimy to zrobić z poziomu asemblera.
 
 Do zmiany control word służą instrukcje 
-
+```
 fstcw mem   - zapisuje w pamięci control word
-
 fldcw mem   - wczytuje z pamięci control word
-
+```
 Za zaokrąglanie są odpowiedzialne bity 11 i 12  
-
+```
 00 - zaokrąglanie do najbliższej 
-
 01 - zaokrąglanie w dół (wartość 0x0400)
-
 10 - zaokrąglanie w górę (wartość 0x800)
+```
 
-#include <iostream> using namespace std;  class Interval{ 	double left, right;   public: 	Interval(double left, double right) 		: left(left), right(right){ 	} 	double inf() { return left; } 	double sup() { return right; }	   	friend Interval operator+ (const Interval & a, const Interval &b); 	friend Interval operator- (const Interval & a, const Interval &b); }  int main(){ 	Interval a(1.,1.); 	Interval b(1e-20,1e-20);  	Interval c = a + b; 	if( (c.inf() == c.sup()) or 	    (c.sup() <= 1.0)     or 	    (c.inf() != 1.0)) 	  cout << "Blad operatora +!\n";  	c = a - b; 	if( (c.inf() == c.sup()) or 	    (c.sup() != 1.0)     or 	    (c.inf() >= 1.0)) 	  cout << "Blad operatora +!\n";  	return 0; }
+
+```cpp
+#include <iostream> 
+using namespace std;  
+class Interval{ 	
+  double left, right;   
+public: 	
+  Interval(double left, double right) 
+  : left(left), right(right){ 	} 	
+  double inf() { return left; } 	
+  double sup() { return right; }	   	
+  friend Interval operator+ (const Interval & a, const Interval &b); 	
+  friend Interval operator- (const Interval & a, const Interval &b); 
+}  
+int main(){ 	
+  Interval a(1.,1.); 	
+  Interval b(1e-20,1e-20);  	
+  Interval c = a + b; 	
+  if( (c.inf() == c.sup()) or (c.sup() <= 1.0)  or (c.inf() != 1.0)) 	  
+    cout << "Blad operatora +!\n";    
+  c = a - b; 	
+  if( (c.inf() == c.sup()) or (c.sup() != 1.0) or (c.inf() >= 1.0)) 	  
+    cout << "Blad operatora -!\n";  	
+  return 0; 
+}
 
