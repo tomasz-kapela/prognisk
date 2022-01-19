@@ -4,7 +4,7 @@
 ## Składnia AT&T
 
 | Składnia AT&T                                             | Przykład |
-| --------------                                            | ----     |
+|--------------                                            | ----     |
 | Zmieniona kolejność operandów : najpierw źródło potem cel | OpCode źrodlo cel |
 | Nazwy rejestrów poprzedzamy %                             |  %eax, %ebx   |
 | Stałe poprzedzamy znakiem $, stałe szesnastkowe przez $0x | $1, $322, $0xffff |
