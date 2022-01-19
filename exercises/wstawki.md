@@ -113,21 +113,38 @@ który zawiera wszystkie możliwe wyniki pomiędzy elementami pierwszego i drugi
 Np. dla dodawania [a,b] + [c,d] = [a+c, b+d].
 
 Niestety liczby a+c i b+d mogą nie być reprezentowalne na komputerze, dlatego aby otrzymać własność  zawierania musimy obliczyć a+c zaokrąglając w dół, a b+d zaokrąglając w górę. Można tego dokonać ustawiając przed dodawaniem odpowiednie flagi FPU tzw control word lub SSE (w zależności jakiego trybu używamy i na jakiej jednostce zamierzamy liczyć). 
-
 Niestety z poziomu C++ nie mamy dostępu do tych flag i musimy to zrobić z poziomu asemblera.
 
-Do zmiany control word służą instrukcje 
+### FPU 
+Do zmiany `FPU Control Word` służą instrukcje 
 ```
-fstcw mem   - zapisuje w pamięci control word
-fldcw mem   - wczytuje z pamięci control word
+fstcw [mem]   - zapisuje w pamięci control word
+fldcw [mem]   - wczytuje z pamięci control word
 ```
+Domyślną wartością rejestru `FPU Control Word` jest `037FH`.
+
 Za zaokrąglanie są odpowiedzialne bity 11 i 12  
 ```
 00 - zaokrąglanie do najbliższej 
 01 - zaokrąglanie w dół (wartość 0x0400)
-10 - zaokrąglanie w górę (wartość 0x800)
+10 - zaokrąglanie w górę (wartość 0x0800)
 ```
 
+### SSE
+```
+ldmxcsr [mem] 
+stmxcsr [mem]
+```
+Domyślna wartość rejestru MXCSR po resecie 1F80H.
+
+Za zaokrąglanie są odpowiedzialne bity 13 i 14  
+```
+00 - zaokrąglanie do najbliższej 
+01 - zaokrąglanie w dół (wartość 0x2000)
+10 - zaokrąglanie w górę (wartość 0x4000)
+```
+
+### Test
 
 ```cpp
 #include <iostream> 
