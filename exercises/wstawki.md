@@ -3,24 +3,18 @@
 
 ## Składnia AT&T
 
-*  Zmieniona kolejność operandów : najpierw źródło potem cel 
-
+*  Zmieniona kolejność operandów : najpierw źródło potem cel    
    ```OpCode źrodlo cel```
 *  Nazwy rejestrów poprzedzamy %                             
-  
    `%eax, %ebx, %rcx, %st0 `   
-*  Stałe poprzedzamy znakiem $, stałe szesnastkowe przez $0x 
+*  Stałe poprzedzamy znakiem $, stałe szesnastkowe przez $0x    
    `$1, $322, $0xffff` 
 *  Adresowanie pamięci wykorzystuje () zamiast []            
    `movl (%ebx), %eax`
 *  Rozmiar operandów określamy dodając do OpCode przyrostek b (8 bit), w (16 bit), l (32 bit)     
    `movl (zmienna), $123`  
-*  Adresowaniu skalowanemu w stylu Intela    
-  `[base + index*scale + disp]` 
-  w AT&T odpowiada 
-  `disp(base, index, scale)` 
-  
-  `movl  %eax,  -0xf4(%ebx, %ecx, 4)`
+*  Adresowaniu skalowanemu w stylu Intela `[base + index*scale + disp]` w AT&T odpowiada `disp(base, index, scale)`   
+   `movl  %eax,  -0xf4(%ebx, %ecx, 4)`
 
 
 # Wstawki asemblerowe 
