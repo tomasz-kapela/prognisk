@@ -112,7 +112,7 @@ Posługując się wstawkami asemblerowymi zaimplementuj operatory + i -, dodają
 ```
 W ścisłych obliczeniach arytmetycznych zamiast liczb zmiennoprzecinkowych wykorzystuje się przedziały, określając dla nich zwykłe operacje arytmetyczne w ten sposób, że wynikiem działania jest możliwie najmniejszy przedział, 
 który zawiera wszystkie możliwe wyniki pomiędzy elementami pierwszego i drugiego przedziału.
-Niestety liczby a+c i b+d mogą nie być reprezentowalne na komputerze, dlatego aby otrzymać własność zawierania musimy obliczyć a+c zaokrąglając w dół, a b+d zaokrąglając w górę. Można tego dokonać ustawiając przed dodawaniem odpowiednie flagi FPU tzw control word lub SSE (w zależności jakiego trybu używamy i na jakiej jednostce zamierzamy liczyć). Niestety z poziomu C++ nie mamy dostępu do tych flag i musimy to zrobić z poziomu asemblera.
+Niestety liczby a+c i b+d mogą nie być reprezentowalne na komputerze, dlatego **aby otrzymać własność zawierania musimy obliczyć a+c zaokrąglając w dół, a b+d zaokrąglając w górę.** Można tego dokonać ustawiając przed dodawaniem odpowiednie flagi FPU tzw control word lub SSE (w zależności jakiego trybu używamy i na jakiej jednostce zamierzamy liczyć). Niestety z poziomu C++ nie mamy dostępu do tych flag i musimy to zrobić z poziomu asemblera.
 
 ### FPU 
 Do zmiany `FPU Control Word` służą instrukcje 
