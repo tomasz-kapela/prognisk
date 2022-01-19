@@ -141,7 +141,7 @@ public:
   double sup() { return right; }	   	
   friend Interval operator+ (const Interval & a, const Interval &b); 	
   friend Interval operator- (const Interval & a, const Interval &b); 
-}  
+};
 int main(){ 	
   Interval a(1.,1.); 	
   Interval b(1e-20,1e-20);  	
