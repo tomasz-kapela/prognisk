@@ -17,7 +17,7 @@ Tematyka ćwiczeń
 10. [Optymalizacja kodu asemblerowego](exercises/optymalizacja.md)
 11. [Polimorfizm w C++](https://sites.google.com/site/prognisk/tematyka-%C4%87wicze%C5%84/polimorfizm-w-c)
 12. [Profiler](exercises/profiler.md)
-13. Wstawki assemblerowe w C++
+13. [Wstawki assemblerowe w C++](exercises/wstawki.md)
 15. Boot-loadery i systemy operacyjne
 
 
