@@ -104,12 +104,16 @@ int main(){
 // 4 6
 ```
 
-Zadanie 3
+# Zadanie 3
+
 Zaimplementuj funkcję 
-
+```cpp
 extern "C" double sum(Node ** tab, int size, ...);
-
-Funkcja powinna dla każdego obiektu w tablicy tab (o rozmiarze size) wywołać odpowiednią funkcję wirtualną w zależności od liczby podanych w "..." argumentów typu double (dla 0 - identity, dla 1 - inverse, dla 2 - compute, liczba argumentów zmiennoprzecinkowych znajduje się z rax). Do funkcji przekazujemy te argumenty zmiennoprzecinkowe. 
+```
+Funkcja powinna dla każdego obiektu w tablicy tab (o rozmiarze size) wywołać 
+odpowiednią funkcję wirtualną w zależności od liczby podanych w "..." argumentów typu double  
+(dla 0 - identity, dla 1 - inverse, dla 2 - compute, liczba argumentów zmiennoprzecinkowych znajduje się z rax). 
+Do funkcji przekazujemy te argumenty zmiennoprzecinkowe. 
 
 Następnie należy zsumować zwrócone wartości i zwrócić tą sumę.  
 
