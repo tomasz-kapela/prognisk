@@ -4,4 +4,4 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-theme: jekyll-theme-architect
+theme: jekyll-theme-tactile
