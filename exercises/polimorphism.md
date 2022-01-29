@@ -8,8 +8,7 @@ Celem tego zestawu jest poznanie przykładowych sposobów jak polimorfizm
 jest wewnętrznie implementowany przez GCC. Więcej szczegółów można znaleźć w 
 * [notatkach z wykładu](http://ww2.ii.uj.edu.pl/~kapela/pn/tableOfContent.php?lectureNumber=8) 
 * dokumentacji kompilatora GCC
-* Itanium C++ ABI
-* polimorfizm w Visual Studio C++
+* [polimorfizm w Visual Studio C++](http://www.openrce.org/articles/files/jangrayhood.pdf)
 
 ## Zadanie 1.
 
