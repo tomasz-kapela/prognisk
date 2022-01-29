@@ -38,8 +38,16 @@ Wykorzystuje się ją przede wszystkim by sprawdzić czy dana liczba jest równa
 
 Instrukcje skoków warunkowych, przedstawione w Tabeli 1 są wykonywane zazwyczaj bezpośrednio po instrukcji CMP lub TEST (inne instrukcje też mogą ustawiać rejestr flag procesora).
 Tabela 1 Instrukcje skoków warunkowych
+| Warunek    |  Liczby ze znakiem  |  Liczby bez znaku  |
+| ---------- | ------------------- | ------------------ |
+| A == B     |  JE, JZ             |  JE, JZ            | 
+| A != B     |  JNE, JNZ           |  JNE, JNZ          | 
+| A < B      |  JL, JNGE           |  JB, JNAE          | 
+| A <= B     |  JLE, JNG           |  JBE, JNA          | 
+| A > B      |  JG, JNLE           |  JA, JNBE          | 
+| A >= B     |  JGE, JNL           |  JAE, JNB          | 
 
-Korzystając z instrukcji przedstawionych powyżej można w prosty sposób stworzyć bloki kontrolne, odpowiadające konstrukcjom składniowym z języka C, np.:
+Korzystając z instrukcji przedstawionych powyże: można w prosty sposób stworzyć bloki kontrolne, odpowiadające konstrukcjom składniowym z języka C, np.:
 ```c
 if ( EAX >= 5 )
     EBX = 1;
