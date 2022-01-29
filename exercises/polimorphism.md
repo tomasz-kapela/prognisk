@@ -46,7 +46,7 @@ int main(){
 
 ## Zadanie 2.
 
-  Zaimplementuj (w asemblerze lub C++) funkcję zmien, która dla danego obiektu zmieni działanie  
+Zaimplementuj (w asemblerze lub C++) funkcję zmien, która dla danego obiektu zmieni działanie 
 pierwszej funkcji w tablicy funkcji wirtualnych (zwracającej inta), 
 w ten sposób, że zwracany wynik będzie o jeden mniejszy od oryginalnego wyniku.  
 
