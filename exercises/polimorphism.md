@@ -15,6 +15,8 @@ jest wewnętrznie implementowany przez GCC. Więcej szczegółów można znaleź
 Zaimplementuj  funkcję `zmien`, która dla danego obiektu zmieni działanie funkcji oblicz, 
 tak aby zamiast kwadratu n*n obliczała 3*n. 
 
+Wskazówka: *Nie da się modyfikować oryginalnej tablicy funkcji wirtualnych (znajduje się ona w sekcji tylko do odczytu), dlatego należy stworzyć własnę tablicę funkcji wirtualnych i ją podmienić.
+
 ```cpp
 // kompilacja 
 //   g++ -fno-devirtualize -c main.cpp -o main.o
