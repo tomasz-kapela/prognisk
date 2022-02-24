@@ -28,6 +28,7 @@ Materiały
 * Debuger
 * Biblioteka asm64_io
 * Geany - konfiguracja
+* [SASM](https://dman95.github.io/SASM/english.html)  Simple crossplatform IDE for NASM, MASM, GAS, FASM
 * [Compiler explorer](https://godbolt.org/)
 * [x86 and amd64 Instruction Reference](http://felixcloutier.com/x86/)
 * [X86 Opcode and Instruction Reference](http://ref.x86asm.net/)
