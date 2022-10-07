@@ -1,3 +1,9 @@
+---
+layout: default
+parent: Ćwiczenia
+nav_order: 6
+---
+
 Debugowanie
 ===============================
 {:.no_toc}
