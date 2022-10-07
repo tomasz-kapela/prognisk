@@ -1,3 +1,9 @@
+---
+layout: default
+title: XXX
+nav_exclude: true
+---
+
 Debuger GDB
 =============
 {:.no_toc}
