@@ -1,3 +1,9 @@
+---
+layout: default
+parent: Ćwiczenia
+nav_order: 2
+---
+
 Struktury kontrolne
 ===============================
 {:.no_toc}
