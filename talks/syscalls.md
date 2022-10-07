@@ -52,7 +52,7 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 
 **Tryby pracy (z /usr/include/asm/fcntl.h)**
 | nazwa	   | ósemkowo	| komentarz |
-|---       | ---      | ---       | 
+|---       |       ---:| ---       | 
 |O_ACCMODE | 3o        | Pełne prawa dostępu | 
 |O_RDONLY  |0o         |Otwieranie tylko do odczytu. Dostępne dla sys_mq_open. |
 |O_WRONLY  |1o         |Otwieranie tylko do zapisu. Dostępne dla sys_mq_open. |
@@ -63,7 +63,7 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 |O_TRUNC   |1000o      |Obcięcie pliku |
 |O_APPEND  |2000o      |Dopisywanie do pliku |
 |O_NONBLOCK  |4000o    |Nie otwieraj, jeśli spowoduje to blokadę. Dostępne dla sys_mq_open. |
-|O_NDELAY    |O_NONBLOCK |jak wyżej |
+|O_NDELAY    |4000o    |jak wyżej |
 |O_SYNC      |10000o   |specyficzne dla ext2 i urządzeń blokowych |
 |FASYNC      |20000o   |fcntl, dla zgodności z BSD |
 |O_DIRECT    |40000o   |podpowiedź bezpośredniego dostępu do dysku, obecnie ignorowana |
