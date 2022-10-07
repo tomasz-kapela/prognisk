@@ -1,3 +1,10 @@
+---
+layout: default
+title: XXX
+nav_exclude: true
+---
+
+
 # Porównywanie liczb w SSE
 
 ## Porównania skalarne ustawiające flagi procesora
