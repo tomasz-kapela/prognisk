@@ -26,6 +26,7 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 
 
 ## Zapis do pliku / na ekran (sys_write)
+
 * Numer: RAX = 1
 * Parametry: 
   * RDI = deskryptor pliku (ekran = 1)
@@ -34,6 +35,7 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 * Zwraca w EAX liczbę zapisanych bajtów lub kod błędu (liczba ujemna)
 
 ## Odczyt z pliku / klawiatury (sys_read)
+
 * Numer: RAX = 0
 * Parametry: 
   * RDI = deskryptor pliku (klawiatura = 0)
@@ -43,6 +45,7 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 
 
 ## Otwarcie pliku (sys_open)
+
 * Numer: RAX = 2
 * Parametry: 
   * RDI = adres pod którym znajduje sie nazwa pliku (zakonczona zerem)
@@ -52,8 +55,8 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 
 **Tryby pracy (z /usr/include/asm/fcntl.h)**
 
-| nazwa	   | ósemkowo	| komentarz |
-|---       |       ---:| ---       | 
+| nazwa	   | ósemkowo	|  opis |
+|:---      |       ---:|:---       | 
 |O_ACCMODE | 3o        | Pełne prawa dostępu | 
 |O_RDONLY  |0o         |Otwieranie tylko do odczytu. Dostępne dla sys_mq_open. |
 |O_WRONLY  |1o         |Otwieranie tylko do zapisu. Dostępne dla sys_mq_open. |
@@ -75,7 +78,7 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 
 **Prawa dostępu (/usr/include/linux/stat.h)**
 
-|nazwa	  | ósemkowo|komentarz|
+|nazwa	  | ósemkowo| komentarz|
 |:---    |     ---:|:---      |
 |S_ISUID |  4000o  |ustaw ID użytkownika przy wykonywaniu (suid) |
 |S_ISGID |  2000o  |ustaw ID grupy przy wykonywaniu (sgid) |
@@ -96,12 +99,14 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 |S_IXUGO |    111o |wykonywanie/przeszukiwanie katalogu dla wszystkich |
 
 ## Zamknięcie pliku (sys_close)
+
 * Numer: RAX = 3
 * Parametry: 
   * RDI = deskryptor pliku
 * Zwraca w EAX kod błędu
 
 ## Pobranie czasu systemowego (sys_time)
+
 * Numer: RAX = 201
 * Parametry: 
   * RDI = NULL lub adres bufora, który otrzyma kopie wyniku
