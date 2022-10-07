@@ -1,3 +1,9 @@
+---
+layout: default
+title: XXX
+nav_exclude: true
+---
+
 Interfejsowanie do C w 32 bitach - standard cdecl
 =================================================
 
