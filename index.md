@@ -2,7 +2,6 @@
 layout: default
 title: Programowanie niskopoziomowe
 nav_order: 1
-has_children: true
 ---
 
 Programowanie niskopoziomowe
