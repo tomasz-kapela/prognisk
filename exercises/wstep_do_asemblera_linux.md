@@ -1,3 +1,10 @@
+---
+layout: default
+title: Wstęp do assemblera
+parent: Ćwiczenia
+nav_order: 2
+---
+
 Wstęp do assemblera (w Linuxie)
 ===============================
 {:.no_toc}
