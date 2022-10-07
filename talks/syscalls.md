@@ -51,56 +51,25 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 * Zwraca w RAX deskryptor pliku lub kod błędu
 
 **Tryby pracy (z /usr/include/asm/fcntl.h)**
-| nazwa	| ósemkowo	| komentarz |
-|--- | --- | ---| 
-|O_ACCMODE | 3 | Pełne prawa dostępu | 
-|O_RDONLY |0 |Otwieranie tylko do odczytu. Dostępne dla sys_mq_open. |
-
-O_WRONLY 
-1 
-Otwieranie tylko do zapisu. Dostępne dla sys_mq_open. 
-O_RDWR 
-2 
-Otwieranie do odczytu i zapisu. Dostępne dla sys_mq_open. 
-O_CREAT 
-100 
-Utworzenie pliku. Dostępne dla sys_mq_open. 
-O_EXCL 
-200 
-Nie twórz pliku, jeśli już istnieje. Dostępne dla sys_mq_open. 
-O_NOCTTY 
-400 
-Jeśli podana nazwa pliku to terminal, to NIE zostanie on terminalem kontrolnym procesu. 
-O_TRUNC 
-1000 
-Obcięcie pliku 
-O_APPEND 
-2000 
-Dopisywanie do pliku 
-O_NONBLOCK 
-4000 
-Nie otwieraj, jeśli spowoduje to blokadę. Dostępne dla sys_mq_open. 
-O_NDELAY 
-O_NONBLOCK 
-jak wyżej 
-O_SYNC 
-10000 
-specyficzne dla ext2 i urządzeń blokowych 
-FASYNC 
-20000 
-fcntl, dla zgodności z BSD 
-O_DIRECT 
-40000 
-podpowiedź bezpośredniego dostępu do dysku, obecnie ignorowana 
-O_LARGEFILE 
-100000 
-Pozwól na otwieranie plików >4GB 
-O_DIRECTORY 
-200000 
-musi być katalogiem 
-O_NOFOLLOW 
-400000 
-nie podążaj za linkami 
+| nazwa	   | ósemkowo	| komentarz |
+|---       | ---      | ---       | 
+|O_ACCMODE | 3        | Pełne prawa dostępu | 
+|O_RDONLY  |0         |Otwieranie tylko do odczytu. Dostępne dla sys_mq_open. |
+|O_WRONLY  |1         |Otwieranie tylko do zapisu. Dostępne dla sys_mq_open. |
+|O_RDWR    |2         |Otwieranie do odczytu i zapisu. Dostępne dla sys_mq_open. |
+|O_CREAT   |100       |Utworzenie pliku. Dostępne dla sys_mq_open. |
+|O_EXCL    |200       |Nie twórz pliku, jeśli już istnieje. Dostępne dla sys_mq_open. |
+|O_NOCTTY  |400       |Jeśli podana nazwa pliku to terminal, to NIE zostanie on terminalem kontrolnym procesu. |
+|O_TRUNC   |1000      |Obcięcie pliku |
+|O_APPEND  |2000      |Dopisywanie do pliku |
+|O_NONBLOCK  |4000    |Nie otwieraj, jeśli spowoduje to blokadę. Dostępne dla sys_mq_open. |
+|O_NDELAY    |O_NONBLOCK |jak wyżej |
+|O_SYNC      |10000   |specyficzne dla ext2 i urządzeń blokowych |
+|FASYNC      |20000   |fcntl, dla zgodności z BSD |
+|O_DIRECT    |40000   |podpowiedź bezpośredniego dostępu do dysku, obecnie ignorowana |
+|O_LARGEFILE |100000  |Pozwól na otwieranie plików >4GB |
+|O_DIRECTORY |200000  |musi być katalogiem |
+|O_NOFOLLOW  |400000  |nie podążaj za linkami |
 
 
 **Prawa dostępu (/usr/include/linux/stat.h)**
