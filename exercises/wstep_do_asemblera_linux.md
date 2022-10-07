@@ -2,7 +2,7 @@
 layout: default
 title: Wstęp do assemblera
 parent: Ćwiczenia
-nav_order: 2
+nav_order: 1
 ---
 
 Wstęp do assemblera (w Linuxie)
