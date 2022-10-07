@@ -4,4 +4,5 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-theme: jekyll-theme-hacker
+theme: minima
+# theme: jekyll-theme-hacker
