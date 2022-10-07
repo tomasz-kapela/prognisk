@@ -51,6 +51,7 @@ Wywołanie systemowe może dodatkowo zmodyfikować wartość rejestrów `RCX, R1
 * Zwraca w RAX deskryptor pliku lub kod błędu
 
 **Tryby pracy (z /usr/include/asm/fcntl.h)**
+
 | nazwa	   | ósemkowo	| komentarz |
 |---       |       ---:| ---       | 
 |O_ACCMODE | 3o        | Pełne prawa dostępu | 
