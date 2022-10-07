@@ -15,4 +15,4 @@ plugins:
 
 title: [Prognisk]
 description: [Programowanie niskopoziomowe]
-show_downloads: [true]
+show_downloads: [false]
