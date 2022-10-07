@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ćwiczenia
+title: Programowanie niskopoziomowe
 nav_order: 1
 has_children: true
 ---
