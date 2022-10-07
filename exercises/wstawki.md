@@ -1,3 +1,7 @@
+---
+parent: Ćwiczenia
+nav_order: 20
+---
 
 # Wstawki asemblerowe w C++
 

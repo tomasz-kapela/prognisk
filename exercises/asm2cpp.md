@@ -1,3 +1,8 @@
+---
+parent: Ćwiczenia
+nav_order: 8
+---
+
 Interfejsowanie do C++
 ===============================
 {:.no_toc}

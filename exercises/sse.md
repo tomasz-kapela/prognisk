@@ -1,5 +1,15 @@
+---
+parent: Ćwiczenia
+nav_order: 10
+---
+
 SSE - Operacje wektorowe SIMD
 =============================
+{:.no_toc}
+
+* TOC
+  {:toc}
+
 Architektura SIMD i udostępniane przez nią techniki programowania niskopoziomowego używane są w celu efektywniejszego wykonywania 
 obliczeń poprzez równoległe przetwarzanie wielu bajtów danych. Technologia ta bazuje na spakowanych typach danych i specjalnych instrukcjach procesora. 
 

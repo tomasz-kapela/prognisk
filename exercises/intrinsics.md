@@ -1,4 +1,9 @@
-Title
+---
+parent: Ćwiczenia
+nav_order: 12
+---
+
+Intrinsics
 ===============================
 {:.no_toc}
 

@@ -1,3 +1,8 @@
+---
+parent: Ćwiczenia
+nav_order: 14
+---
+
 Optymalizacja 
 ===============================
 {:.no_toc}

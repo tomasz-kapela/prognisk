@@ -1,3 +1,8 @@
+---
+parent: Ćwiczenia
+nav_order: 16
+---
+
 # Polimorfizm w C++
 
 Polimorfizm w C++ pozwala na zróżnicowanie zachowania ogólnego algorytmu 
