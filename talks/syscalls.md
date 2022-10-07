@@ -1,3 +1,9 @@
+---
+layout: default
+title: XXX
+nav_exclude: true
+---
+
 # Wywołania systemowe Linuxa 64-bit
 
 Poniżej znajdują się wybrane wywołania systemowe Linuxa potrzebne do rozwiązania zadań. 
