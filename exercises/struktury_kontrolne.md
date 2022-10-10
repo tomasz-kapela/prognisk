@@ -11,23 +11,23 @@ Struktury kontrolne
 * TOC
 {:toc}
 
-# Instrukcje skoku bezwarunkowego
-Instrukcja JMP spowoduje wykonanie skoku bezwarunkowego (goto z języka C) do określonej etykiety
+## Instrukcja skoku bezwarunkowego `JMP`
+Instrukcja `JMP` spowoduje wykonanie skoku bezwarunkowego (goto z języka C) do określonej etykiety
 ```nasm
 JMP my_label
 ```
-
-Wywołanie podprogramu odbywa się instrukcją `CALL`. Dokonuje ona skoku bezwarunkowego pod podany adres (etykietę będącą nazwą podprogramu) jednocześnie odkładając na stos adres powrotu (adres instrukcji występującej bezpośrednio po CALL). Umożliwia to instrukcji RET na powrót z podprogramu do miejsca wywołania.
+## Wywołanie podprogramu `CALL` i `RET`
+Wywołanie podprogramu odbywa się instrukcją `CALL`. Dokonuje ona skoku bezwarunkowego pod podany adres (etykietę będącą nazwą podprogramu) jednocześnie odkładając na stos adres powrotu (adres instrukcji występującej bezpośrednio po `CALL`). Umożliwia to instrukcji `RET` na powrót z podprogramu do miejsca wywołania.
 ```nasm
-kwadrat:
-  imul eax, eax
-  ret
-...
 mov eax, 5
-call kwadrat
+call kwadrat    ; wywołanie podprogramu kwadrat
+...
+kwadrat:        ; etykieta oznaczająca początek podprogramu
+  imul eax, eax
+  ret           ; powrót z podprogramu
 ```
 
-# Instrukcje warunkowe
+## Instrukcje warunkowe `CMP`, `TEST`, `JXX`
 Instrukcje warunkowe pozwalają zaimplementować akcję w zależności od wyniku testu czy ostatnich operacji arytmetycznych. 
 Podstawowy test  w asemblerze wykonuje się instrukcją CMP, porównującą dwa operandy i ustawiającą odpowiednie flagi rejestru flagowego. 
 ```nasm
@@ -44,6 +44,7 @@ Wykorzystuje się ją przede wszystkim by sprawdzić czy dana liczba jest równa
 
 Instrukcje skoków warunkowych, przedstawione w Tabeli 1 są wykonywane zazwyczaj bezpośrednio po instrukcji CMP lub TEST (inne instrukcje też mogą ustawiać rejestr flag procesora).
 Tabela 1 Instrukcje skoków warunkowych
+
 | Warunek    |  Liczby ze znakiem  |  Liczby bez znaku  |
 | ---------- | ------------------- | ------------------ |
 | A == B     |  JE, JZ             |  JE, JZ            | 
@@ -53,7 +54,8 @@ Tabela 1 Instrukcje skoków warunkowych
 | A > B      |  JG, JNLE           |  JA, JNBE          | 
 | A >= B     |  JGE, JNL           |  JAE, JNB          | 
 
-Korzystając z instrukcji przedstawionych powyże: można w prosty sposób stworzyć bloki kontrolne, odpowiadające konstrukcjom składniowym z języka C, np.:
+Korzystając z instrukcji przedstawionych powyżej: można w prosty sposób stworzyć bloki kontrolne, 
+odpowiadające konstrukcjom składniowym z języka C, np.:
 ```c
 if ( EAX >= 5 )
     EBX = 1;
@@ -105,37 +107,39 @@ Wiecej informacji....
 Kompilacja własnego pliku w Geany (zakładając, że asm64_io jest skompilowane już w bieżącym katalogu)
 (nasm "%f" -felf64 -o "%e".o) && (gcc "%e".o driver64.o asm64_io.o -o"%e")
 
-# Zadanie 1
+## Zadania 
+
+### Zadanie 1
 
 Napisz program w asemblerze sprawdzający, czy dana liczba jest liczbą pierwszą.
 Dla liczby n należy sprawdzić czy któraś z liczb naturalnych pomiędzy 2 a pierwiastek z n dzieli n.  We wstępnej wersji można sprawdzać do n-1. 
 W wersji podstawowej liczba może być na sztywno wpisana w program.
 W wersji rozszerzonej wczytujemy liczbę z klawiatury.
 
-# Zadanie 2
+### Zadanie 2
 
 Napisz funkcję w asemblerze, która wypisze na ekran liczbę całkowitą ze znakiem umieszczona w rejestrze EAX wykorzystując przerwania systemowe. 
 Przed wypisaniem należy zamienić liczbę na łańcuch tekstowy (np. dzielimy w pętli przez 10 z resztą a kolejne cyfry umieszczamy w buforze). 
 
-# Zadanie 3
+### Zadanie 3
 
 Proszę napisać program wypisujący rozkład zadanej liczby na czynniki pierwsze. 
 Można wypisywać posługując się asm_io lub printf.
 Np. dla liczby 60 wyjście powinno zawierać:
 2 2 3 5
 
-# Zadanie 4
+### Zadanie 4
 
 Napisz program, który dla danej liczby n i przedziału [a, b] wyszuka i wypisze na ekran wszystkie liczby z przedziału [a,b] względnie pierwsze do n.
 Program może po prostu dla każdej liczby x z przedziału [a,b] obliczać NWD(n,x) i wypisywać liczbę x jeżeli wynik jest równy 1.   
 
-# Archiwum
+## Archiwum
 
-## Zadanie 5
+### Zadanie 5
 
 Napisz program szukający najmniejszej wspólnej wielokrotności dwóch liczb wczytanych z klawiatury.
 
-## Zadanie 6 
+### Zadanie 6 
 
 Napisz program szukający liczb pierwszych w zadanym przedziale.
 Algorytm może po prostu sprawdzać po kolei liczby z zadanego przedziału. 
