@@ -123,9 +123,9 @@ W tabeli zebrano akcje wykonywane dla instrukcji
 | argument | rozmiar (B) | akcja            | 
 | ---------| :---------: | ---------------- |
 | reg/mem8 | 1           | 	 AX = AL*argument |
-|	 reg/mem16 | 2 | 	 	 DX:AX = AX*argument |
-| 	 reg/mem32 | 4 |	 	 EDX:EAX = EAX*argument |
-| 	 reg/mem64 | 8 |	 	 RDX:RAX = RAX*argument |
+|	reg/mem16 | 2 | 	 	 DX:AX = AX*argument |
+| reg/mem32 | 4 |	 	 EDX:EAX = EAX*argument |
+| reg/mem64 | 8 |	 	 RDX:RAX = RAX*argument |
 
 
 ```nasm 
