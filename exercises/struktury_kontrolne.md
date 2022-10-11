@@ -106,9 +106,9 @@ petla_for:
 
 ## Wejście/wyjście z biblioteką asm64_io
 
-Wczytywanie i wypisywanie liczb z assemblera nie jest łatwe. W tym celu można użyć biblioteki [asm64_io](../utils/asm64_io.zip), która ułatwia wywołanie odpowiednich funkcji języka C z assemblera. Biblioteka ta pozwala też wypisać zawartość rejestrów ułatwiając debugowanie.
+Wczytywanie i wypisywanie liczb z assemblera nie jest łatwe. W tym celu można użyć biblioteki [asm64_io](../utils/asm_io.md), która ułatwia wywołanie odpowiednich funkcji języka C z assemblera. Biblioteka ta pozwala też wypisać zawartość rejestrów ułatwiając debugowanie.
 
-[Więcej informacji...](../utils/asm64_io.zip)
+[Więcej informacji...](../utils/asm_io.md)
 
 Kompilacja własnego pliku w Geany (zakładając, że asm64_io jest skompilowane już w bieżącym katalogu)
 (nasm "%f" -felf64 -o "%e".o) && (gcc "%e".o driver64.o asm64_io.o -o"%e")
