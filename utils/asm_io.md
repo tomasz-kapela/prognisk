@@ -4,7 +4,7 @@ Wejście i wyjście z programu asemblerowego są, łagodnie rzecz ujmując, uci�
 Aby uprościć obsługę operacji wejścia/wyjścia, w programach asemblerowych można wywoływać funkcje C. 
 Asemblerowy interfejs do funkcji printf i scanf został zaimplementowany w bibliotece
 *  asm64_io (64bit), 
-*  [asm63_io_pie](asm63_io_pie.zip) (64bit, gcc wersja powyżej 5).
+*  [asm63_io_pie](asm64_io_pie.zip) (64bit, gcc wersja powyżej 5).
 
 
 ## Funkcje biblioteki asm64_io
