@@ -48,8 +48,8 @@ segment .bss
 ;
 
 segment .text
-global asm_main
-asm_main:
+global MAIN
+MAIN:
 enter 0,0         ; setup 
 
 ; ----
@@ -62,16 +62,15 @@ leave
 ret
 ````
 
-Najpierw należy zbudować pliki driver.c i asm64_io.asm (wystarczy zrobić to tylko raz)
+Najpierw należy zbudować bibliotekę asm64_io.asm (wystarczy zrobić to tylko raz)
 ````
-gcc -c driver64.c -o driver64.o
 nasm -f elf64 asm64_io.asm -o asm64_io.o
 ````
 
 Następnie kompilujemy własny program starter.asm i linkujemy go z biblioteką
 ````
 nasm -felf64 -o starter.o starter.asm
-gcc -o starter starter.o driver64.o asm64_io.o 
+gcc -o starter starter.o asm64_io.o 
 ````
 
 Można też skorzystać z załączonego pliku Makefile i wywołać polecenie make
@@ -85,8 +84,8 @@ wynik   db "Suma = ", 0
 
 segment .bss
 segment .text
-global asm_main
-asm_main:
+global MAIN
+MAIN:
 enter 0,0
 ; ----
 
