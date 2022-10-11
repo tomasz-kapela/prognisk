@@ -12,11 +12,13 @@ Struktury kontrolne
 {:toc}
 
 ## Instrukcja skoku bezwarunkowego `JMP`
+
 Instrukcja `JMP` spowoduje wykonanie skoku bezwarunkowego (goto z języka C) do określonej etykiety
 ```nasm
 JMP my_label
 ```
 ## Wywołanie podprogramu `CALL` i `RET`
+
 Wywołanie podprogramu odbywa się instrukcją `CALL`. Dokonuje ona skoku bezwarunkowego pod podany adres (etykietę będącą nazwą podprogramu) jednocześnie odkładając na stos adres powrotu (adres instrukcji występującej bezpośrednio po `CALL`). Umożliwia to instrukcji `RET` na powrót z podprogramu do miejsca wywołania.
 ```nasm
 mov eax, 5
@@ -28,6 +30,7 @@ kwadrat:        ; etykieta oznaczająca początek podprogramu
 ```
 
 ## Instrukcje warunkowe `CMP`, `TEST`, `JXX`
+
 Instrukcje warunkowe pozwalają zaimplementować akcję w zależności od wyniku testu czy ostatnich operacji arytmetycznych. 
 Podstawowy test  w asemblerze wykonuje się instrukcją CMP, porównującą dwa operandy i ustawiającą odpowiednie flagi rejestru flagowego. 
 ```nasm
@@ -74,6 +77,7 @@ next:
 ```
 
 ## Pętle
+
 Instrukcje porównania i skoków można użyć do stworzenia pętli np. pętla for z języka C
 ```cpp
 for (j=0,i=10; i>0; i--) { 	j=j+i; }
@@ -101,8 +105,10 @@ petla_for:
 ```
 
 ## Wejście/wyjście z biblioteką asm64_io
-Wczytywanie i wypisywanie liczb z assemblera nie jest łatwe. W tym celu można użyć biblioteki asm64_io, która ułatwia wywołanie odpowiednich funkcji języka C z assemblera. Biblioteka ta pozwala też wypisać zawartość rejestrów ułatwiając debugowanie.
-Wiecej informacji....
+
+Wczytywanie i wypisywanie liczb z assemblera nie jest łatwe. W tym celu można użyć biblioteki [asm64_io](../utils/asm_io.md), która ułatwia wywołanie odpowiednich funkcji języka C z assemblera. Biblioteka ta pozwala też wypisać zawartość rejestrów ułatwiając debugowanie.
+
+[Więcej informacji...](../utils/asm_io.md)
 
 Kompilacja własnego pliku w Geany (zakładając, że asm64_io jest skompilowane już w bieżącym katalogu)
 (nasm "%f" -felf64 -o "%e".o) && (gcc "%e".o driver64.o asm64_io.o -o"%e")
