@@ -1,3 +1,7 @@
 **/.DS_Store
 **/*.o
 **/*.exe
+/_site/
+/.jekyll-cache/
+/Gemfile.lock
+/.idea/

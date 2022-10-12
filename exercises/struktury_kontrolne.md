@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Struktury kontrolne
 parent: Ćwiczenia
 nav_order: 2
 ---

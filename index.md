@@ -10,10 +10,10 @@ Programowanie niskopoziomowe
 Tematyka ćwiczeń
 ----------------
 
-1. [Wstęp do assemblera](exercises/wstep_do_asemblera_linux.md)
-2. [Struktury kontrolne: skoki i pętle](exercises/struktury_kontrolne.md)
+1. [Wstęp do assemblera](./exercises/wstep_do_asemblera_linux.html)
+2. [Struktury kontrolne: skoki i pętle]({{ site.baseurl }}{% link exercises/struktury_kontrolne.md %} )
 3. [Podprogramy, tablice i stos](exercises/podprogramy.md)
-4. [CDECL - interfersjowanie do C w trybie 32-bitowym](exercises/cdecl.md)
+4. [CDECL - interfersjowanie do C w trybie 32-bitowym]({% link exercises/cdecl.md %})
 5. [FPU - obliczenie zmiennoprzecinkowe (32-bit)](exercises/fpu.md)
 6. [Debugger](exercises/debugger.md)
 7. [ABI64 - interfejsowanie do C w trybie 64-bitowym](exercises/abi64.md)
