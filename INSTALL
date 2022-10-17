@@ -1,0 +1,10 @@
+
+# Install Jekyll
+
+ [Jekyll](https://jekyllrb.com/docs/installation/)
+
+ gem install sass
+
+ bundle install
+
+ ./run.sh
