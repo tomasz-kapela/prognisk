@@ -162,7 +162,7 @@ layout reg
 
 Przykładowy skrypt skrypt.gdb
 
-```gdb
+```
 set verbose off
 
 break _start
