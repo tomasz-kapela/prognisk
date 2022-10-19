@@ -1,7 +1,9 @@
 **/.DS_Store
 **/*.o
+**/*.ao
 **/*.exe
 /_site/
 /.jekyll-cache/
 /Gemfile.lock
 /.idea/
+/exercises/cdecl/

@@ -1,0 +1,25 @@
+.PHONY: all clean zip
+
+PROGRAMS = c_asm  suma
+# zadanie1 zadanie2 zadanie3
+
+all: $(PROGRAMS)
+
+c_asm: c_asm.ao
+
+suma:  main.o suma.ao
+
+$(PROGRAMS):
+	gcc $(CFLAGS) $^ -o $@
+
+%.ao : %.asm
+	nasm -o $@ -felf32 $<
+
+%.o : %.c
+	gcc -c $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf *.o *.ao $(PROGRAMS)
+
+zip:
+	zip cdecl.zip Makefile *.c *.asm

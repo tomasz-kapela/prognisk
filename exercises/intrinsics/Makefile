@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean zip
 
 ZADANIA =  zadanie1 zadanie2 zadanie3
 
