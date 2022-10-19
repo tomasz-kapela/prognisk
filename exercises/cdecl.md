@@ -39,11 +39,13 @@ Więcej szczegółów można znaleźć w materiałach z wykładu.
 
 
 > **Uwaga:**  
->   W systemach 64 bitowych należy kompilować poniższe programy jako 32 bitowe.  
+>   W systemach 64 bitowych należy kompilować programy jako 32 bitowe.  
 >   W tym celju dodajemy dla `nasm` opcje `-felf`, a dla gcc/g++ opcję `-m32`.  
 >   Może to wymagać odinstalowania bibliotek standardowych w wersji 32-bitowej 
 >   np. w Ubuntu przez   
 >  `sudo apt install gcc-multilib`
+
+## Wywołanie funkcji języka C z asemblera
 
 Na Listingu 1 pokazano kod programu asemblerowego wywołującego funkcję `printf`.
 
@@ -76,10 +78,12 @@ section .data
 napis: db "Liczba jeden to: %d", 10, 0
 ```
 
+## Wywołanie z C funkcji zaimplementowanej w asemblerze
+
 Na Listingu 2 pokazano kod programu napisanego w C, 
 wołającego funkcję asemblerową przedstawioną na Listingu 3.
 
-*Listing 2*
+*Listing 2* [main.c](cdecl/main.c)
 
 ```c
 // KOMPILACJA - kod źródłowy C w main.c, kod źródłowy ASM w suma.asm
@@ -99,7 +103,7 @@ int main(){
 }
 ```
 
-*Listing 3*
+*Listing 3* : [suma.asm](cdecl/suma.asm)   
 
 ```nasm
 BITS 32
@@ -122,7 +126,7 @@ suma:
    add    eax, b
 ; tu kończy się właściwy kod funkcji
    leave     ; usuwamy ramkę stosu LEAVE = MOV ESP, EBP / POP EBP
-ret
+ret    ; wynik zwracany jest w rejestrze eax
 ```
 
 ## Zadanie 1

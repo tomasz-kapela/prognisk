@@ -2,14 +2,16 @@
 
 ZADANIA =  zadanie1 zadanie2 zadanie3
 
-all: $(ZADANIA)
+PROGRAMS = $(patsubst %,%.exe,$(ZADANIA))
+
+all: $(PROGRAMS)
 
 CXXFLAGS = -Wall -O2 -std=c++11 -m32
 
-$(ZADANIA): % : %.o %.ao
+$(PROGRAMS): %.exe : %.o %.ao
 	g++ $(CXXFLAGS) $^ -o $@
 
-zadanie2sol: zadanie2.o zadanie2_sol.o
+zadanie2sol.exe: zadanie2.o zadanie2_sol.o
 	g++ $(CXXFLAGS) $^ -o $@
 
 %.o : %.cpp
@@ -20,7 +22,7 @@ zadanie2sol: zadanie2.o zadanie2_sol.o
 	nasm -felf32  $< -o $@
 
 clean:
-	rm -rf *.o *.ao $(ZADANIA) zadanie2sol
+	rm -rf *.o *.ao $(PROGRAMS) zadanie2sol.exe
 
 zip:
 	zip zadania.zip Makefile *.cpp *.asm *.h
