@@ -38,12 +38,18 @@ Konwencja **cdecl** (stosowana przez język C w trybie 32-bitowym) w wielkim skr
 Więcej szczegółów można znaleźć w materiałach z wykładu.
 
 
-> **Uwaga:**  
->   W systemach 64 bitowych należy kompilować programy jako 32 bitowe.  
->   W tym celju dodajemy dla `nasm` opcje `-felf`, a dla gcc/g++ opcję `-m32`.  
->   Może to wymagać odinstalowania bibliotek standardowych w wersji 32-bitowej 
->   np. w Ubuntu przez   
->  `sudo apt install gcc-multilib`
+## Kompilacja na Linuxie 64-bitowym
+
+Aby kompilować programy 32 bitowe w systemie Linux 64 bitowym przeważnie trzeba doinstalować odpowiednie 32 bitowe pakiety `gcc-multilib` i `lib32stdc++-XX-dev` (gdzie XX to wersja kompilatora g++). Przykładowo w Ubuntu
+```bash
+sudo apt install gcc-multilib lib32stdc++10-dev
+```
+Kompilując i linkując musimy dodawać odpowiednie opcje `-felf32` i `-m32` informujące, że chcemy otrzymać kod binarny 32 bitowy. Przykładowo dla plików zródłowych main.cpp i funkcja.asm mamy
+```bash
+g++ -m32 -c main.cpp -o main.o
+nasm -felf32 funkcja.asm -o funkcja.o
+g++ -m32 main.o funkcja.o -o main
+```
 
 ## Wywołanie funkcji języka C z asemblera
 
@@ -89,8 +95,8 @@ wołającego funkcję asemblerową przedstawioną na Listingu 3.
 // KOMPILACJA - kod źródłowy C w main.c, kod źródłowy ASM w suma.asm
 // LINUX :
 // nasm -felf32 suma.asm -o suma.o
-// gcc -m32 -o main.o -c main.c
-// gcc -m32 main.o suma.o -o suma
+// gcc -m32 -no-pie -o main.o -c main.c
+// gcc -m32 -no-pie main.o suma.o -o suma
 #include <stdio.h>
 
 int suma (int a, int b);         /* prototyp funkcji */
