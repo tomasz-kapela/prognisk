@@ -32,7 +32,7 @@ Materiały
 
 * [Strona wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/)
 * Debuger
-* Biblioteka asm64_io
+* [Biblioteka asm64_io](https://tomasz-kapela.github.io/asm64_io/)
 * Geany - konfiguracja
 * [SASM](https://dman95.github.io/SASM/english.html)  Simple crossplatform IDE for NASM, MASM, GAS, FASM
 * [Compiler explorer](https://godbolt.org/)

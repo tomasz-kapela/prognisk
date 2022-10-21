@@ -2,9 +2,10 @@
 
 Wejście i wyjście z programu asemblerowego są, łagodnie rzecz ujmując, uciążliwe.
 Aby uprościć obsługę operacji wejścia/wyjścia, w programach asemblerowych można wywoływać funkcje C.
-Asemblerowy interfejs do funkcji printf i scanf został zaimplementowany w bibliotece
-*  asm64_io (64bit),
-*  [asm63_io_pie](asm64_io_pie.zip) (64bit, gcc wersja powyżej 5).
+Asemblerowy interfejs do funkcji printf i scanf został zaimplementowany w bibliotece asm64_io.
+ 
+
+[Strona projektu asm64_io](https://tomasz-kapela.github.io/asm64_io/) na GitHubie.
 
 
 ## Funkcje biblioteki asm64_io
@@ -23,10 +24,10 @@ Asemblerowy interfejs do funkcji printf i scanf został zaimplementowany w bibli
 Tabela 2. Funkcje biblioteki asm64_io
 
 Po załadowaniu do rejestrów odpowiednich danych, procedury z Tabeli 2 woła się instrukcją call np.:
-````asm
+```nasm
 mov rax, 10
 call print_int     ; wypisze na ekran liczbę 10
-````
+```
 
 ## Stosowanie biblioteki
 
@@ -76,7 +77,7 @@ gcc -o starter starter.o asm64_io.o
 Można też skorzystać z załączonego pliku Makefile i wywołać polecenie make
 
 ## Przykład
-````asm
+```nasm
 %include "asm64_io.inc"
 segment .data
 pytanie db "Podaj dwie liczby : ", 0  ; tekst musi kończyć się zerem
@@ -112,10 +113,15 @@ call print_nl
 mov rax, 0 ; powrót do C
 leave
 ret
-````
+```
 
 ## Wersje biblioteki
-Najnowszą biblioteką jest [asm64_io_pie](../utils/asm64_io_pie.zip) pozwala ona na tworzenie oprogramowania i w wersji PIE i NO-PIE. Starsza biblioteka ams64_io jest głownie dla starszych wersji Linuxa i nie wspiera ona PIE. Biblioteka asm_io jest dla systemów 32 bitowych.
+Najnowszą wesja biblioteki [asm64_io](asm64_io.zip) pozwala 
+na tworzenie oprogramowania i w wersji PIE i NO-PIE.
+
+Biblioteka asm_io była tworzona dla systemów 32 bitowych.
+
+Alternatywą dla tej biblioteki jest biblioteka **io** zawarta w środkowisku SASM.
 
 
 
