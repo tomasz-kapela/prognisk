@@ -134,8 +134,9 @@ suma:
    leave     ; usuwamy ramkę stosu LEAVE = MOV ESP, EBP / POP EBP
 ret    ; wynik zwracany jest w rejestrze eax
 ```
+## Zadania
 
-## Zadanie 1
+### Zadanie 1
 
 Napisać w assemblerze funkcję main, która wczytuje dwie liczby całkowite ze znakiem przy użyciu funkcji scanf z biblioteki standardowej języka C i wypisujący na ekran ich iloraz przy użyciu funkcji printf.
 Należy przysłać tylko plik ASM.
@@ -146,7 +147,7 @@ Należy przysłać tylko plik ASM.
 | -4 -2	| 2 |            
 | -6 2  |  -3   |
 
-## Zadanie 2
+### Zadanie 2
 Napisać aplikację 32 bitową wyliczającą iloczyn elementów tablicy liczb int.
 
 Aplikacja ma być złożona z dwóch modułów:
@@ -160,7 +161,7 @@ Aplikacja ma być złożona z dwóch modułów:
 
 Zadbaj o to aby funkcja `iloczyn` była zgodna ze standardem **cdecl**.
 
-## Zadanie 3
+### Zadanie 3
 
 Napisać funkcję o nagłówku
 
@@ -187,7 +188,7 @@ powinno wypisać
 
 [Program z testami](cdecl/sortuj.c)
 
-##  Zadanie 4
+###  Zadanie 4
 
 Napisać moduł asemblerowy implementujący 32 bitowyą funkcję minmax  
 

@@ -228,15 +228,16 @@ Wywołania systemowe są podprogramami dostarczanymi przez system operacyjny. Dz
 
 ### Debugger
 Pisanie programów w assemblerze i szukanie błędów znacznie ułatwia debugger, który pozawala śledzić wykonanie programu instrukcja po instrukcji. 
-Więcej informacji można znaleźć w dziale o [debuggerach](utils/debugger.md).
+Więcej informacji można znaleźć w dziale o [debuggerach](../utils/debugger.md).
 
 ### Edytor 
 Do pisania programów w asemblerze nie potrzebne jest rozbudowane IDE, wystarczy edytor tekstowy najlepiej z kolorowaniem składni. 
 Ja polecam **Geany**, mały edytor pozwalający dodatkowo zdefinować dla każdego języka osobne polecenia kompilacji.  
 
-Przykładowe ustawienia, które jednym klawiszem kompilują i linkują plik bieżący plik asemblerowy:
-Zbuduj -> ustawienia kompilacji:
-     (nasm "%f" -felf64 -o "%e".o) && (ld -m elf_x86_64 "%e".o -o"%e")
+Przykładowe ustawienia, które jednym klawiszem kompilują i linkują plik bieżący plik asemblerowy
+(Zbuduj -> ustawienia kompilacji):
+
+`(nasm "%f" -felf64 -o "%e".o) && (ld -m elf_x86_64 "%e".o -o"%e")`
 
 
 ## Zadania

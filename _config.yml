@@ -19,6 +19,8 @@ description: [Programowanie niskopoziomowe]
 #show_downloads: [false]
 
 nav_external_links:
+  - title: Strona wykładu
+    url: https://ww2.ii.uj.edu.pl/~kapela/pn/
   - title: Biblioteka ASM64_IO
     url: https://tomasz-kapela.github.io/asm64_io/
     hide_icon: true # set to true to hide the external link icon - defaults to false
