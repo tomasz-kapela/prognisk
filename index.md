@@ -32,8 +32,8 @@ Linki
 
 * [Strona wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/)
 * [Biblioteka asm64_io](https://tomasz-kapela.github.io/asm64_io/)
-* Geany - konfiguracja
-* Debuger
+* [Edytor Geany - konfiguracja](./utils/geany/geany.md)
+* [Debugger](./utils/debugger.md) - kilka proponowanych debuggerów
 * [SASM](https://dman95.github.io/SASM/english.html)  Simple crossplatform IDE for NASM, MASM, GAS, FASM
 * [Compiler explorer](https://godbolt.org/)
 
