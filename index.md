@@ -27,22 +27,19 @@ Tematyka ćwiczeń
 15. Boot-loadery i systemy operacyjne
 
 
-Materiały
----------
+Linki
+------
 
 * [Strona wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/)
-* Debuger
 * [Biblioteka asm64_io](https://tomasz-kapela.github.io/asm64_io/)
 * Geany - konfiguracja
+* Debuger
 * [SASM](https://dman95.github.io/SASM/english.html)  Simple crossplatform IDE for NASM, MASM, GAS, FASM
 * [Compiler explorer](https://godbolt.org/)
-* [x86 and amd64 Instruction Reference](http://felixcloutier.com/x86/)
-* [X86 Opcode and Instruction Reference](http://ref.x86asm.net/)
 
-Przydatne linki
-===============
-
-* Bogdan Drozdowski [Jezyk asembler dla kazdego](http://bogdro.evai.pl/linux/index.php)
 
 Literatura
-==========
+---------
+* [x86 and amd64 Instruction Reference](http://felixcloutier.com/x86/)
+* [X86 Opcode and Instruction Reference](http://ref.x86asm.net/)
+* Bogdan Drozdowski [Jezyk asembler dla kazdego](http://bogdro.evai.pl/linux/index.php)

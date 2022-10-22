@@ -1,6 +1,5 @@
 ---
 layout: default
-title: XXX
 nav_exclude: true
 ---
 
@@ -38,6 +37,7 @@ a[i] = (a[i] XX b[i]) ? 0xFF..FF :  0x00..00;
 ```
 
 Najczęściej wykorzystywane predykaty i odpowiadające im pseoudoinstrukcje (są zamieniane przez kompilator na instrukcję z odpowiednią stałą XX).
+
 | XX | predykat | pseudoinstrucja |
 | ---| -----    |  ----           |  
 |  0 |  =       | CMPEQ**         |    

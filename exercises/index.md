@@ -1,20 +1,9 @@
+---
+layout: default
+title: Ćwiczenia
+nav_order: 2
+has_children: true
+---
+
 Tematyka ćwiczeń
 ================
-
-1. Wstęp do assemblera
-2. Struktury kontrolne
-3. Podprogramy, tablice i stos
-4. Interfersjowanie do C w trybie 32-bit (cdecl)
-5. FPU - obliczenie zmiennoprzecinkowe (32-bit)
-
-Tematy dodatkowe
-
-Pomoce
-========
-
-Przydatne linki
-===============
-
-
-Literatura
-==========

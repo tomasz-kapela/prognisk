@@ -1,3 +1,9 @@
+---
+layout: default
+nav_order: 40
+nav_exclude: true
+---
+
 # Biblioteka asm64_io
 
 Wejście i wyjście z programu asemblerowego są, łagodnie rzecz ujmując, uciążliwe.

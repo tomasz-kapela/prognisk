@@ -1,6 +1,5 @@
 ---
 layout: default
-title: XXX
 nav_exclude: true
 ---
 
@@ -44,7 +43,7 @@ Mamy wtedy możliwość np. sprawdzenia zawartości rejestrów, stosu czy pami�
 
 ## Sterowanie wykonaniem programu
 ```gdb
-r  run       # wykonuje program aż do napotkania breakpointa 
+r  run       # wykonuje program aż do napotkania breakpointa 
 si stepi     # przejście o jedną instrukcję dalej, wchodzi do wnętrza wywoływanych funkcji
 ni nexti     # przejdź jedną instrukcję, bez wchodzenia do funkcji
 s  step      # jedna linia kodu dalej (np. w C++), wchodzi do wywoływanych funkcji
