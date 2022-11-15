@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: Ćwiczenia
-nav_order: 3
+nav_order: 99
 nav_exclude: true
 ---
 
