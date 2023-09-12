@@ -262,7 +262,12 @@ Wskazówka: Użyj dwukrotnie sys_read aby wczytać dwa teksty, pierwsze znaki sk
 
 ### Zadanie 3
 
-Napisz program który otwiera plik do zapisu (jeżeli go nie ma to go tworzy) i wpisuje do niego tekst np. Twoje imię i nazwisko a następnie go zamyka. 
+Napisz program który otwiera plik do dopisywania (jeżeli go nie ma to go tworzy) i wpisuje do niego tekst np. Twoje imię i nazwisko a następnie go zamyka.
+Przy drugim uruchomieniu programu tekst w pliku powinien być wpisany dwukrotnie itd. 
+
+*Wskazówka: Na [liście wywołań systemowych](../talks/syscalls.md) tryby i prawa dostępu są podane ósemkowo (przyrostek o), a odpowiedni tryb uzyskujemy robiąc OR bitowy np. 100o | 2o tworzy plik do odczytu i zapisu.*
+
+
 ### Zadanie 4
 
 Napisz program, który odczyta czas systemowy i wypisze aktualna godzinę. 
