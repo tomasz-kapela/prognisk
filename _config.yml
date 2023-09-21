@@ -11,7 +11,7 @@ kramdown:
 #remote_theme: pages-themes/primer@v0.2.0
 remote_theme: just-the-docs/just-the-docs
 
-color_scheme: uj-light
+#color_scheme: uj-light
 
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
