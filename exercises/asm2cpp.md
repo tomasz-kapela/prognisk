@@ -20,6 +20,7 @@ Do rozwiązania zadań przydatna jest znajomość wykładów
 
 ## Zadanie 1
 Zaimplementuj w osobnym module assemblerowym funkcje, które rotują w lewo bity w liczbie x o n pozycji o następujących nagłówkach  
+
 ```cpp
 unsigned int rotate(unsigned int x, int n = 1);
 
@@ -27,6 +28,7 @@ unsigned char rotate(unsigned char x, int n = 1);
 ```
 
 Przykład użycia
+
 ```cpp
 #include <cstdio>
 using namespace std;
