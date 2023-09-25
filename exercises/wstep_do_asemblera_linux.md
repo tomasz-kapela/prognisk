@@ -256,9 +256,9 @@ Witaj Tomek!
 ```
 
 ### Zadanie 2
-Napisz program, który wczyta dwie liczby (jedno cyfrowe) doda je do siebie i wyświetli wynik.
+Napisz program, który wczyta dwie liczby (jedno cyfrowe) wymnoży je do siebie i wyświetli wynik.
 
-Wskazówka: Użyj dwukrotnie sys_read aby wczytać dwa teksty, pierwsze znaki skonwertuj na liczby odejmując kod ASCII '0', dodaj je a  potem skonwertuj na napis (można uzupełnić odpowiednio przygotowany tekst) i wypisz.  
+Wskazówka: Użyj dwukrotnie sys_read aby wczytać dwa teksty, pierwsze znaki skonwertuj na liczby odejmując kod ASCII '0', pomnóż je, rozdziel cyfry jedności i dziesiątek, potem skonwertuj na napis (można uzupełnić odpowiednio przygotowany tekst) i wypisz.  
 
 ### Zadanie 3
 
@@ -273,11 +273,13 @@ Przy drugim uruchomieniu programu tekst w pliku powinien być wpisany dwukrotnie
 Napisz program, który odczyta czas systemowy i wypisze aktualna godzinę. 
 
 Wskazówki: 
-Możesz wykorzystać wywołanie systemowe sys_time (13 lub 201).
-Jako wynik wywołania systemowego otrzymujemy liczbę sekund od 1 stycznia 1970. 
-Reszta z dzielenia przez 10 da nam cyfrę jedności liczby sekund, następnie dzielenie przez 6 da nam cyfrę dziesiątek liczby sekund itd.
-Przed każdym dzieleniem należy wyzerować EDX/RDX
-Wygodnie jest przygotować sobie tekst typu
-db "XX:XX:XX", 0ah
-i uzupełnić miejsca X odpowiednimi cyframi.
+  * Możesz wykorzystać wywołanie systemowe sys_time (13 lub 201).
+    Jako wynik wywołania systemowego otrzymujemy liczbę sekund od 1 stycznia 1970.
+  * Reszta z dzielenia przez 10 da nam cyfrę jedności liczby sekund, następnie dzielenie przez 6 da nam cyfrę dziesiątek liczby sekund itd.
+    Przed każdym dzieleniem należy wyzerować EDX/RDX
+  * Wygodnie jest przygotować sobie tekst jak poniżej i uzupełnić miejsca # odpowiednimi cyframi.
+    ```
+    db "Time: ##:##:##", 0ah
+    ```
+   
 
