@@ -1,6 +1,7 @@
 ---
 layout: default
-nav_exclude: true
+parent: Wykłady
+nav_order: 8
 ---
 
 Debuger GDB
