@@ -163,9 +163,9 @@ Proszę napisać funkcję asemblerową o nagłówku
 extern "C" void tablicuj(double a, double b, double P, double Q, double xmin, double xmax, int k,  double * wartosci);
 ```
 Funkcja ma tablicować wartości funkcji:
-```
-    y=a*(sin(P*2*pi*x))2 + b*(sin(Q*2*pi*x))2
-```
+
+    $$ y=a*(sin(P*2*pi*x))^2 + b*(sin(Q*2*pi*x))^2 $$
+
 dla k>=2 równoodległych punktów w przedziale od xmin do xmax.(tj.  x1 = xmin ... xk = xmax )
 
 Wynik ma być zapisany w tablicy wartosci (zakladamy, że jest odpowiednio duza);
