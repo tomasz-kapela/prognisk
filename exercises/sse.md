@@ -71,7 +71,7 @@ xorps x, y    ;  x = x xor y
 andnps x, y   ;  x = x and !y
 ```
 ### Materiały
-* [Notatki z wykłądu](https://ww2.ii.uj.edu.pl/~kapela/pn/splitLecture.php?slideNumber=4&lectureNumber=10)
+* [Notatki z wykładu](https://ww2.ii.uj.edu.pl/~kapela/pn/splitLecture.php?slideNumber=4&lectureNumber=10)
 * [Proste zestawienie przydatnych instrukcji](http://www.songho.ca/misc/sse/sse.html)
 * [Intel® Intrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html) - pełne zestawienie instrukcji z wygodną wyszukiwarką.
 
@@ -126,7 +126,7 @@ Korzystając z instrukcji SSE proszę napisać procedurę wyliczającą amplitud
 Na Listingu 4 przedstawiono również prototyp funkcji liczącej gradient. 
 Gradient GRAD(i,j) w pikselu (i,j) liczony jest według wzoru:
 ```
-GRAD(i,j)= scale * sqrt((DATA(i+1,j)-DATA(i-1,j))2+(DATA(i,j+1)-DATA(i,j-1))2)
+GRAD(i,j)= scale * sqrt((DATA(i+1,j)-DATA(i-1,j))^2+(DATA(i,j+1)-DATA(i,j-1))^2)
 ```
 Na Listingu przedstawiony jest kod z instrukcjami pozwalającymi czytać i pisać do bitmapy 256-kolorowej. 
 Dla polepszenia dokładności obliczeń gradientu, zarówno dane wejściowe jak i wyjściowe są typu float. 
