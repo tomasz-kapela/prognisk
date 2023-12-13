@@ -133,8 +133,14 @@ Pierszą metodą jest dodanie opcji włączającej konkretne rozszerzenie zest
 
 Drugą opcja jest zdefiniowanie architektury procesora opcją `-march=cpu-type`.
 Umożliwi to używanie instrukcji z wszystkich rozszerzeń dostępnych w danej architekturze (także w kodzie generowanym przez kompilator).
-Dodatkowo kod zostanie zooptymalizowany pod tą architekturę procesora (o ile nie użyto opcji `-mtune=cpu-type`)
+Dodatkowo kod zostanie zooptymalizowany pod tą architekturę procesora (o ile nie użyto opcji `-mtune=cpu-type`).
+Współczesne architektury wszystkie udostępniają roszerzenia `SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, AVX, AVX2`. 
 
+| cpu-type | procesory |
+| --- | --- | 
+| haswell | 4-ta generacja Intela (2013-2022) |
+| skylake | 6-ta generacja Intela (2015-2019) i późniejsze |
+| native  | procesor w danym komputerze |
 
 Zadanie 1. 
 ----------
