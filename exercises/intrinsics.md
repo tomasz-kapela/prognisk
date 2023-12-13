@@ -106,7 +106,7 @@ int main(){
          *vy = (__m128 *) y,
          *vz = (__m128 *) z;
 
-//   *vx = (__m128 *) (x+1); // odkomentowanie tej linijki spowoduje zatrzymanie programu z 'segmentation error'
+//   *vx = (__m128 *) (x+1); // odkomentowanie tej linijki spowoduje zatrzymanie programu z 'segmentation fault'
 
   *vz = _mm_add_ps(*vx, *vy);
 
@@ -115,8 +115,30 @@ int main(){
 }
 ```
 
+### Wybór architektury procesora
+
+Domyślnie gcc tworzy kod binarny dla ogólnego procesora zgodnego z ABI64 czyli posiadającego rozszerzenia SSE i SSE2. 
+Użycie funkcji intrinsics z późniejszych rozszerzeń spoowduje błąd kompilacji.
+
+Pierszą metodą jest dodanie opcji włączającej konkretne rozszerzenie zestawu instrukcji przez jedna z opcji:
+`-msse3
+-mssse3
+-msse4
+-msse4a
+-msse4.1
+-msse4.2
+-mavx
+-mavx2
+-mavx512f`
+
+Drugą opcja jest zdefiniowanie architektury procesora opcją `-march=cpu-type`.
+Umożliwi to używanie instrukcji z wszystkich rozszerzeń dostępnych w danej architekturze (także w kodzie generowanym przez kompilator).
+Dodatkowo kod zostanie zooptymalizowany pod tą architekturę procesora (o ile nie użyto opcji `-mtune=cpu-type`)
+
+
 Zadanie 1. 
 ----------
+
 Przepisać poniższy program aby do wyznaczania maksimum używał funkcji intrinsics `_mm_max_epu32`
 
 ```cpp
@@ -148,6 +170,7 @@ int main(){
 
 Zadanie 2.
 ----------
+
 Przepisać zadanie 3 (skalowanie bitmapy) z zestawu SSE używając funkcji intrinsics.
 ```cpp
 #include <stdio.h>
@@ -193,6 +216,7 @@ int main(void){
     fclose(strm);
 }
 ```
+
 *Wskazówka*:
 * Przy kompilacji należy dodać opcje definiującą odpowiednią architekturę docelową procesora w zależności od użytych funkcji.
 
