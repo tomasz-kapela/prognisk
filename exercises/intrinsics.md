@@ -142,6 +142,8 @@ Współczesne architektury wszystkie udostępniają roszerzenia `SSE, SSE2, SSE3
 | skylake | 6-ta generacja Intela (2015-2019) i późniejsze |
 | native  | procesor w danym komputerze |
 
+Więcej informacji znajduje się w [dokumentacji GCC](https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html).
+
 Zadanie 1. 
 ----------
 
