@@ -22,7 +22,7 @@ bo na ich podstawie kompilator tworzy kod w miejscu ich wywołania.
 Przeważnie dana funkcja intrinsics odpowiada jednej instrukcji asemblerowej, 
 ale są wyjątki.
 
-Funkcje intrinsics zastępują stosowane wcześniej wstawki asemblerowe, zapewniając większe bezpieczeństwo i czytelność kodu.
+Funkcje intrinsics zastępują stosowane wcześniej wstawki asemblerowe, zapewniając większe bezpieczeństwo i czytelność kodu, a przede wszystkim przenośność.
 
 [Wprowadzenie do funkcji intrinsics na stronach Intela.](https://docs.microsoft.com/en-us/cpp/intrinsics/?view=msvc-170)
 
@@ -45,21 +45,21 @@ Zmienne tych typów mogą zostać umieszczone w jednym z rejestrów xmm0-xmm15 l
 using namespace std;
 
 int main(){
-  __m128 x = {1., 2., 3., 4.},    // __m128 jest tablicą 4 floatów
-         y = {5., 7., 9., 11.},   
-         result;  
+  __m128d x = {1., 2.},      // __m128d jest tablicą d double'ów
+         y = {5., 7.};  
 
-  result = _mm_add_ps(x, y);      // ładujemy i dodajemy wektorowo 4 floaty 
+  __m128d result = _mm_add_pd(x, y);  // ładujemy i dodajemy wektorowo 2 double 
   
-  float z[4] = {0};
-  _mm_storeu_ps(z, result);        // zapisujemy wynik w pamięci
+  double z[2] = {2};
+  _mm_storeu_pd(z, result);         // zapisujemy wynik w pamięci
     
-  printf("[%f, %f, %f, %f]\n", z[0], z[1], z[2], z[3]);    
+  printf("[%f, %f]\n", z[0], z[1]);    
   return 0;
 }
 ```
 
-Drugą metodą jest operowanie wskaźnikami do __m128
+Gdy dane są uprzednio w tablicy musimy je najpierw załadować do zmennej wektorowej
+
 ```cpp
 #include "emmintrin.h"
 #include "xmmintrin.h"
@@ -68,13 +68,45 @@ Drugą metodą jest operowanie wskaźnikami do __m128
 using namespace std;
 int main(){
 
-  float x[] = {1, 2, 3, 4};
+  const int N = 16;
+  float x[N] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+  float y[N] = {5, 7, 9, 11, 1, 2, 3, 4};
+  float z[N];  
+
+  for(int i=0; i<16; i+=4){
+    __m128 vx = _mm_loadu_ps(x), 
+           vy = _mm_loadu_ps(y);
+    __m128 vz = _mm_add_ps(vx, vy);
+     _mm_storeu_pd(z, vz);            // zapisujemy wynik w pamięci 
+  }
+
+  for(int i=0; i<16; i++)
+    printf("%f, ", z[i]);
+  return 0;
+}
+```
+
+Inną metodą jest konwersja wskaźników do __m128 *.
+W tym jednak wypadku ważne aby wskaźniki wskazywały na adresy wyrównane do granicy 16 bajtowej,
+bo zapis `*vx` jest zamieniany na `rozkaz movaps`.
+
+```cpp
+#include "emmintrin.h"
+#include "xmmintrin.h"
+#include <cstdio>
+
+using namespace std;
+int main(){
+
+  float x[] = {1, 2, 3, 4, 5, 6, 7, 8};
   float y[] = {5, 7, 9, 11};
   float z[4];  
 
-  __m128 *vx = (__m128 *) x, 
+  __m128 *vx = (__m128 *) x,
          *vy = (__m128 *) y,
          *vz = (__m128 *) z;
+
+//   *vx = (__m128 *) (x+1); // odkomentowanie tej linijki spowoduje zatrzymanie programu z 'segmentation error'
 
   *vz = _mm_add_ps(*vx, *vy);
 
@@ -82,8 +114,6 @@ int main(){
   return 0;
 }
 ```
-
-W tym jednak wypadku ważne aby tablice były wyrównane do granicy 16 bajtowej bo zapis `*vx` jest zamieniany na `rozkaz movaps`.
 
 Zadanie 1. 
 ----------
