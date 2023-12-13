@@ -86,7 +86,7 @@ int main(){
 }
 ```
 
-Inną metodą jest konwersja wskaźników do __m128 *.
+Inną metodą (osobiście nie polecaną przeze mnie) jest konwersja wskaźników do `__m128 *`.
 W tym jednak wypadku ważne aby wskaźniki wskazywały na adresy wyrównane do granicy 16 bajtowej,
 bo zapis `*vx` jest zamieniany na `rozkaz movaps`.
 
