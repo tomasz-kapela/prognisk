@@ -12,7 +12,7 @@ makrodefinicją `COPY`.
 
 ### Różne wersje kopiowania
 
-```asm
+```nasm
 ; RDI - dest
 ; RSI - src
 ; RDX - n
@@ -73,15 +73,15 @@ copy_forward:
 
 ### Uzyskane czasy 
 
-| Wersja | Czasy     |  
-|---|-----------|
-| rozmiar | 10000     |
-| N | 1000000   |
-|copy_rep| 0.698529  |
-|copy_loop| 18.695135 |
-|copy_movsq| 0.706954  |
-|copy_forward|  2.711850         |
-|copy_backward |    2.689194       |
+| Wersja         | Czasy       |  
+|----------------|-------------|
+| rozmiar        | 10000       |
+| N              | 1000000     |
+| `copy_rep`       | 0.698529    |
+| `copy_loop`      | 18.695135   |
+| `copy_movsq`     | 0.706954    |
+| `copy_forward`   | 2.711850    |
+| `copy_backward`  | 2.689194    |
 
 
 ### Uruchomienie
