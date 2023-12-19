@@ -1,7 +1,6 @@
 ---
 layout: default
-parent: Wykłady
-nav_order: 10
+nav_exclude: true
 ---
 
 # Optymalizacja kopiowania

@@ -1,7 +1,6 @@
 ---
 layout: default
-parent: Wykłady
-nav_order: 20
+nav_exclude: true
 ---
 
 # Optymalizacja - suma - łancuch zależności
