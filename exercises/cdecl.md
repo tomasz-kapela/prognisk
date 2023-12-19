@@ -58,12 +58,12 @@ Na Listingu 1 pokazano kod programu asemblerowego wywołującego funkcję `print
 W Windows nazwy funkcji poprzedzane są znakiem _. 
 Aby skompilować przykłady należy dodać podkreślenia do etykiet `main` i `printf`.
 
-*Listing 1* : [c_asm.asm](code/c_asm.asm)
+*Listing 1* : [c_asm.asm](cdecl/c_asm.asm)
 
 ```nasm 
 ; KOMPILACJA:  plik źródłowy c_asm.asm
 ; nasm -o c_asm.obj -felf c_asm.asm
-; gcc -m32 -nopie c_asm.obj -o c_asm
+; gcc -m32 -no-pie c_asm.obj -o c_asm
 section .text
 
 extern printf          ; definicja funkcji printf znajduje się w bibliotece standardowej C
