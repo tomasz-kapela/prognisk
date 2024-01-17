@@ -24,18 +24,18 @@ nav_order: 20
 # Wstawki asemblerowe 
 
 Do umieszczania prostych wstawek używamy instrukcji 
-```nasm
+```cpp
 asm( "Instrukcje asemblerowe");
 ```
 Na przykład
-```nasm
+```c++
 asm("movl %%ecx, %%eax \n\t addl %%ebx, %%eax");
 ```
 Powoduje to proste  wklejenie danego tekstu (kodu asemblerowego) do pliku generowanego przez gcc,
 bez żadnego sprawdzenia poprawności.  Dlatego też konieczne jest np. wstawienie znaków nowej linii po każdej instrukcji. 
 
 Ogólna postać wstawki asemblerowej ma postać
-```nasm
+```cpp
  asm ( "szablon instrukcji asemblerowych" 
       : wyjściowe operandy               /* opcjonalne */
       : wejściowe operandy               /* opcjonalne */
@@ -44,10 +44,13 @@ Ogólna postać wstawki asemblerowej ma postać
 ```     
 
 Operandy podaje się jako listę elementów postaci  
+
 ```
 "xxx" (wartosc), 
 ```
+
 gdzie xxx określa miejsce umieszczenia wartości np. 
+
 ```
 "a" = rax 
 "b" = rbx
@@ -67,6 +70,7 @@ Operandy te są dostępne pod literałami `%0, %1, %2, ...` (numerujemy najpierw
 Przed operandami wejściowymi dodatkowo dajemy znak = np. `"=r" (wyjscie)`
 
 Przykład
+
 ```cpp
 int x=2, y=3, result;
 asm( "addl %%ebx, %%eax"   // % jest symbolem specjalnym dlatego nazwy rejestrów to np. %%eax
@@ -74,8 +78,10 @@ asm( "addl %%ebx, %%eax"   // % jest symbolem specjalnym dlatego nazwy rejestró
     : "a"(x), "b"(y)       // na wejściu x będzie w rejestrze eax, a zmienna y w ebx 
     );
 ```
+
 Ze względów optymalizacyjnych dobrze jest wybór rejestru do przekazywania parametrów pozostawić kompilatorowi,
 można też przekazywać zmienne w pamięci.
+
 ```cpp
 int x=2, y=3, result;
 asm( "movl %1, %%eax;"  
