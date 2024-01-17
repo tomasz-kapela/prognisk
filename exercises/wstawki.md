@@ -37,9 +37,9 @@ bez żadnego sprawdzenia poprawności.  Dlatego też konieczne jest np. wstawien
 Ogólna postać wstawki asemblerowej ma postać
 ```cpp
  asm ( "szablon instrukcji asemblerowych" 
-      : wyjściowe operandy               /* opcjonalne */
-      : wejściowe operandy               /* opcjonalne */
-      : lista niszczonych rejestrów      /* opcjonalne */
+      : wyjsciowe operandy               /* opcjonalne */
+      : wejsciowe operandy               /* opcjonalne */
+      : lista niszczonych rejestrow      /* opcjonalne */
      );
 ```     
 
