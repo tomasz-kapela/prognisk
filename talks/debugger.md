@@ -60,6 +60,7 @@ Do ustawiania breakpointów służy `break` (można używać skrótu `b`)
 break fun         # breakpoint na etykiecie/funkcji fun  
 break 10          # breakpoint na linii nr 10 w kodzie źródłowym   
 break *0xFF12345  # breakpoint na adresie 0xFF12345
+b source.cpp:20   # breakpoint w linii 20 pliku source.cpp
 tbreak etykieta   # breakpoint tymczasowy, zatrzymuje się tylko raz 
 ```
 
@@ -85,7 +86,7 @@ info reg         # zawartość rejestrów całkowitoliczbowych
 info float       # zawartość rejestrów zmiennoprzecinkowych
 info all-reg     # wszystkie rejestry
 info stack       # stos wywołań funckji 
-info functions.  # lista funkcji
+info functions   # lista funkcji
 info frame       # informacja o ramce stosu
 ```
 
