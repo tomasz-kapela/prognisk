@@ -22,7 +22,7 @@ Aby otrzymać punkty za zadanie należy użyć technik, które są opisane w tre
 
 ### BONUS: Konkurs na najszybszy kod
 
-Dla każdego zadania osoba z najszybszym rozwiązaniem dostaje dodatkowe 3p, druga w kolejności 2p, trzecia 1p.
+Dla każdego zadania osoba z najszybszym rozwiązaniem dostaje dodatkowe 3p, 2-3 miejsce - 2p, 4-6 miejsce - 1p.
 
 ### Testy dla zadań 
 
