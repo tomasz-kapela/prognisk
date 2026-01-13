@@ -238,7 +238,7 @@ Zaimplementować filtry uwzględniające otoczenie tak jak opisano [tutaj](https
    liczymy sumę pikseli z otoczenia przemnożonych przez odpowiednią wagę z macierzy
    weight, a następnie dzielimy przez sumę wag (chyba że suma wag jest zerem, to wtedy nie dzielimy).  
 *  Wynik tych obliczeń może być poza zakresem [0,255], dlatego trzeba go odpowiednio "przyciąć".
-*  Obliczenia ją osobno przeprowadzane dla każdej składowej koloru.
+*  Obliczenia są osobno przeprowadzane dla każdej składowej koloru.
 *  Należy użyć funkcji wektorowych operujących na floatach.
 
 Przykład użycia 
