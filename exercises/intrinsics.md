@@ -231,7 +231,7 @@ int main(void){
 Zadanie 3. 
 ----------
 
-Zaimplementować filtry uwzględniające otoczenie tak jak opisano [tutaj](http://informatyka.wroc.pl/node/443?page=0,2).
+Zaimplementować filtry uwzględniające otoczenie tak jak opisano [tutaj](https://web.archive.org/web/20180620031034/http://informatyka.wroc.pl/node/443?page=0,2) (strona archiwalna).
 
 *Wskazówki*: 
 *  Dla każdego piksela liczymy średnią ważoną w jego otoczeniu 3x3 tzn.
