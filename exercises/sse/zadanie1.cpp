@@ -19,8 +19,11 @@ int main(void)
     bool correct = true;
     for(i=0;i<N;i++){
         printf("%d ",DIFF[i]);
-        if(((int)tab[i-1]-tab[i]<=-128) and (DIFF[i]!= -128)) correct=false;
-        else if( DIFF[i] != i+1 ) correct = false;
+        int expected_diff = (int)tab[i+1] - (int)tab[i];
+        if (expected_diff < -128) expected_diff = -128;
+        else if (expected_diff > 127) expected_diff = 127;
+
+        if (DIFF[i] != expected_diff) correct = false;
     } 
 
     printf("\n");

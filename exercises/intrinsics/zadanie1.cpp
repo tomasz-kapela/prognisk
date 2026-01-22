@@ -19,6 +19,6 @@ int main(){
       if(max < tab[i])
           max = tab[i];
   }
-  printf("%d\n", max);
+  printf("%u\n", max);
   return 0;
 }
