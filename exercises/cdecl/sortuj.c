@@ -3,7 +3,7 @@
 void sortuj( int * a, int *b, int * c);
 
 int check(int x, int y, int z){
-  return (x>=y) && (y>=z) && (y>=z);
+  return (x>=y) && (y>=z);
 }
 
 void test(int x, int y, int z){
